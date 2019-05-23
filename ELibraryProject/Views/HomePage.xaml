@@ -7,6 +7,45 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid Background="#303641">
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="200"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <StackPanel Grid.RowSpan="2" Background="#1d1f20">
             
+            <Button Width="200" Height="50" 
+                    Background="Transparent" Content="Books" 
+                    Foreground="White" Command="{Binding AddBook}"/>
+            
+            <Button Width="200" Height="50" 
+                    Background="Transparent" Content="Branches" 
+                    Foreground="White" Command="{Binding AddBook}"/>
+            
+            <Button Width="200" Height="50" 
+                    Background="Transparent" Content="Customers" 
+                    Foreground="White" Command="{Binding AddBook}"/>
+            
+            <Button Width="200" Height="50" 
+                    Background="Transparent" Content="Employees" 
+                    Foreground="White" Command="{Binding AddBook}"/>
+            
+            <Button Width="200" Height="50" 
+                    Background="Transparent" Content="Users" 
+                    Foreground="White" Command="{Binding AddBook}"/>
+            
+            <Button Width="200" Height="50" 
+                    Background="Transparent" Content="Book" 
+                    Foreground="White" Command="{Binding AddBook}"/>
+            
+        </StackPanel>
+
+        
     </Grid>
 </UserControl>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ELibraryProject.ViewModels
 {
-    public class EmployeeViewModel
+    public class EmployeeViewModel : BaseViewModel
     {
     }
 }

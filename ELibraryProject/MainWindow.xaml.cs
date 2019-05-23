@@ -25,15 +25,10 @@ namespace ELibraryProject
             InitializeComponent();
         }
 
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
+        private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
-        }
-
-        private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

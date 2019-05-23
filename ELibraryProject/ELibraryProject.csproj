@@ -82,6 +82,7 @@
     <Compile Include="Commands\EmployeeCommands\AddEmployee.cs" />
     <Compile Include="Commands\EmployeeCommands\RemoveEmployee.cs" />
     <Compile Include="Commands\EmployeeCommands\UpdateEmployee.cs" />
+    <Compile Include="Commands\HomePageCommands\AppExitCommand.cs" />
     <Compile Include="Commands\UserCommands\AddUser.cs" />
     <Compile Include="Commands\UserCommands\RemoveUser.cs" />
     <Compile Include="Commands\UserCommands\UpdateUser.cs" />
@@ -92,6 +93,7 @@
     <Compile Include="Entities\Permisson.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Extension classes\BoolToVisibilityConverter.cs" />
+    <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\BranchViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />

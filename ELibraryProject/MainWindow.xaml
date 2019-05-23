@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ELibraryProject"
+        xmlns:local1="clr-namespace:ELibraryProject.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStyle="None">
 
@@ -12,8 +13,17 @@
             <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        <local:LoginPage Grid.Row="1"/>
-        <DockPanel Grid.Row="0" Background="Black" MouseDown="DockPanel_MouseDown"/>
+        
+        <local1:HomePage Grid.Row="1"/>
+        
+        <WrapPanel Grid.Row="0" Height="35">
+            
+            <DockPanel MouseDown="DockPanel_MouseDown" Width="736" Background="Black"/>
+            <Button Width="50" Height="30" Content="X" 
+                    FontSize="15" Background="Black" 
+                    Foreground="White" Command="{Binding AppExitCommand}"/>
+            
+        </WrapPanel>
             
         
     </Grid>

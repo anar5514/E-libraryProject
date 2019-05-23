@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace ELibraryProject.ViewModels
 {
-    public class BookViewModel
+    public class BookViewModel : BaseViewModel
     {
+
     }
 }
