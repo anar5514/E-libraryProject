@@ -54,7 +54,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Page Include="FirstPage.xaml">
+    <Page Include="Views\HomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\LoginPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -66,9 +70,38 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="Commands\BookCommands\AddBook.cs" />
+    <Compile Include="Commands\BookCommands\RemoveBook.cs" />
+    <Compile Include="Commands\BookCommands\UpdateBook.cs" />
+    <Compile Include="Commands\BranchCommands\AddBranch.cs" />
+    <Compile Include="Commands\BranchCommands\RemoveBranch.cs" />
+    <Compile Include="Commands\BranchCommands\UpdateBranch.cs" />
+    <Compile Include="Commands\CustomerCommands\AddCustomer.cs" />
+    <Compile Include="Commands\CustomerCommands\RemoveCustomer.cs" />
+    <Compile Include="Commands\CustomerCommands\UpdateCustomer.cs" />
+    <Compile Include="Commands\EmployeeCommands\AddEmployee.cs" />
+    <Compile Include="Commands\EmployeeCommands\RemoveEmployee.cs" />
+    <Compile Include="Commands\EmployeeCommands\UpdateEmployee.cs" />
+    <Compile Include="Commands\UserCommands\AddUser.cs" />
+    <Compile Include="Commands\UserCommands\RemoveUser.cs" />
+    <Compile Include="Commands\UserCommands\UpdateUser.cs" />
+    <Compile Include="Entities\Book.cs" />
+    <Compile Include="Entities\Branch.cs" />
+    <Compile Include="Entities\Customer.cs" />
+    <Compile Include="Entities\Employee.cs" />
+    <Compile Include="Entities\Permisson.cs" />
+    <Compile Include="Entities\User.cs" />
     <Compile Include="Extension classes\BoolToVisibilityConverter.cs" />
-    <Compile Include="FirstPage.xaml.cs">
-      <DependentUpon>FirstPage.xaml</DependentUpon>
+    <Compile Include="ViewModels\BookViewModel.cs" />
+    <Compile Include="ViewModels\BranchViewModel.cs" />
+    <Compile Include="ViewModels\CustomerViewModel.cs" />
+    <Compile Include="ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\HomePage.xaml.cs">
+      <DependentUpon>HomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -101,16 +134,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\BookCommands\" />
-    <Folder Include="Commands\BranchCommands\" />
-    <Folder Include="Commands\CustomerCommands\" />
-    <Folder Include="Commands\EmployeeCommands\" />
-    <Folder Include="Commands\UserCommands\" />
-    <Folder Include="Entities\" />
-    <Folder Include="ViewModels\" />
-    <Folder Include="Views\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\usernameicon.png" />
   </ItemGroup>

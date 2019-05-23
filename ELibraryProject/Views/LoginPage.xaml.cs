@@ -16,24 +16,13 @@ using System.Windows.Shapes;
 namespace ELibraryProject
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for FirstPage.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class LoginPage : UserControl
     {
-        public MainWindow()
+        public LoginPage()
         {
             InitializeComponent();
-        }
-
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
-        }
-
-        private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-
         }
     }
 }

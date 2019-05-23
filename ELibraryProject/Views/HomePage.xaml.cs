@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ELibraryProject
+namespace ELibraryProject.Views
 {
     /// <summary>
-    /// Interaction logic for FirstPage.xaml
+    /// Interaction logic for HomePage.xaml
     /// </summary>
-    public partial class FirstPage : UserControl
+    public partial class HomePage : UserControl
     {
-        public FirstPage()
+        public HomePage()
         {
             InitializeComponent();
         }
