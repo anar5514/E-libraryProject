@@ -35,10 +35,5 @@ namespace ELibraryProject
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            App.Current.Shutdown();
-        }
     }
 }

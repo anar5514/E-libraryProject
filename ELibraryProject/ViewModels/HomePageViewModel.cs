@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ELibraryProject.Commands.HomePageCommands;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +9,6 @@ namespace ELibraryProject.ViewModels
 {
     public class HomePageViewModel : BaseViewModel
     {
-
+        ShowBooksCommand ShowBooksCommand => new ShowBooksCommand(new MainWindowViewModel());
     }
 }

@@ -6,8 +6,7 @@
         xmlns:login="clr-namespace:ELibraryProject"
         xmlns:home="clr-namespace:ELibraryProject.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" WindowStyle="None">
-
+        Title="MainWindow" Height="500" Width="800" WindowStyle="None">
 
     <Grid>
         <Grid.RowDefinitions>
@@ -25,7 +24,7 @@
 
             <Button Width="50" Height="30" 
                     FontSize="15" Background="Black" 
-                    Foreground="White" Command="{Binding AppExitCommand}" Click="Button_Click">
+                    Foreground="White" Command="{Binding AppExitCommand}">
                 <Button.Content>
                     <Image Source="/Images/exit2.png"/>
                 </Button.Content>

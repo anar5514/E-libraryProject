@@ -100,9 +100,11 @@
                 <TextBox Style="{StaticResource AllTextBoxStyle}"/>
             </WrapPanel>
 
-            <WrapPanel Width="350" >
+            <WrapPanel Width="350">
                 <Label Content="Branch :" Width="120" Style="{StaticResource AllLabelStyle}"/>
-                <TextBox Style="{StaticResource AllTextBoxStyle}"/>
+                <ComboBox Width="190" Height="30" Margin="15,0,0,0" Background="Black" 
+                          ItemsSource="{Binding Branches}"
+                          SelectedValuePath="Id" DisplayMemberPath="Name"/>
             </WrapPanel>
 
             <WrapPanel Width="350" >

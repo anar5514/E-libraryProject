@@ -1,5 +1,4 @@
 ﻿using ELibraryProject.ViewModels;
-using ELibraryProject.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,15 +6,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ELibraryProject.Commands.LoginPageCommands
+namespace ELibraryProject.Commands.HomePageCommands
 {
-    public class LogInCommand : ICommand
+    public class ShowUsersCommand : ICommand
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
 
-        public LogInCommand(MainWindowViewModel MainWindowViewModel)
+        public ShowUsersCommand(MainWindowViewModel MainWindowViewModel)
         {
-            this.MainWindowViewModel = MainWindowViewModel;           
+            this.MainWindowViewModel = MainWindowViewModel;
         }
 
         public event EventHandler CanExecuteChanged;
@@ -28,7 +27,7 @@ namespace ELibraryProject.Commands.LoginPageCommands
         public void Execute(object parameter)
         {
             MainWindowViewModel.Grid.Children.Clear();
-            MainWindowViewModel.Grid.Children.Add(new HomePage());            
+            //MainWindowViewModel.Grid.Children.Add()
         }
     }
 }

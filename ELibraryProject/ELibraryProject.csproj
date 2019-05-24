@@ -94,6 +94,13 @@
     <Compile Include="Commands\EmployeeCommands\AddEmployee.cs" />
     <Compile Include="Commands\EmployeeCommands\RemoveEmployee.cs" />
     <Compile Include="Commands\EmployeeCommands\UpdateEmployee.cs" />
+    <Compile Include="Commands\HomePageCommands\RentalReportSectionCommand.cs" />
+    <Compile Include="Commands\HomePageCommands\SalesReportSectionCommand.cs" />
+    <Compile Include="Commands\HomePageCommands\ShowBooksCommand.cs" />
+    <Compile Include="Commands\HomePageCommands\ShowBranchesCommand.cs" />
+    <Compile Include="Commands\HomePageCommands\ShowCustomersCommand.cs" />
+    <Compile Include="Commands\HomePageCommands\ShowEmployeesCommand.cs" />
+    <Compile Include="Commands\HomePageCommands\ShowUsersCommand.cs" />
     <Compile Include="Commands\LoginPageCommands\LogInCommand.cs" />
     <Compile Include="Commands\MainWindowCommands\AppExitCommand.cs" />
     <Compile Include="Commands\UserCommands\AddUser.cs" />
@@ -161,9 +168,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Commands\HomePageCommands\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Resource Include="Images\usernameicon.png" />
   </ItemGroup>

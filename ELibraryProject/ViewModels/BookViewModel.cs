@@ -1,4 +1,5 @@
 ﻿using ELibraryProject.Commands.BookCommands;
+using ELibraryProject.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,37 @@ namespace ELibraryProject.ViewModels
         public BookViewModel()
         {
 
+        }
+
+        private List<Branch> branches;
+        public List<Branch> Branches
+        {
+            get
+            {
+                return Branches;
+            }
+
+            set
+            {
+                Branches = value;
+                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(Branches)));
+            }
+        }
+
+
+        private Branch currentBranch;
+        public Branch CurrentBranch
+        {
+            get
+            {
+                return CurrentBranch;
+            }
+
+            set
+            {
+                CurrentBranch = value;
+                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(CurrentBranch)));
+            }
         }
 
     }
