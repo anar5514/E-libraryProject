@@ -26,10 +26,6 @@ namespace ELibraryProject
         public LoginPage()
         {
             InitializeComponent();
-
-            this.LoginPageViewModel =new LoginPageViewModel();
-
-            DataContext = LoginPageViewModel;
         }
     }
 }

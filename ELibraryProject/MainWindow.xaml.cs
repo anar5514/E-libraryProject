@@ -21,14 +21,12 @@ namespace ELibraryProject
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
-    {
-        public MainWindowViewModel MainWindowViewModel { get; set; }
-        public Grid MainGrid { get => mainGrid; set => mainGrid = value; }
-
+    {     
         public MainWindow()
         {
             InitializeComponent();
-            MainWindowViewModel = new MainWindowViewModel();
+            MainWindowViewModel MainWindowViewModel = new MainWindowViewModel();
+            MainWindowViewModel.Grid = mainGrid;
             DataContext = MainWindowViewModel;
         }
 

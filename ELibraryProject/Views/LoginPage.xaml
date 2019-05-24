@@ -60,7 +60,7 @@
     </UserControl.Resources>
    
 
-    <Grid Background="#303641">
+    <Grid Name="MainGrid" Background="#303641">
         <Border CornerRadius="5.0" Height="400" 
                 Width="250" BorderBrush="{x:Null}" 
                 BorderThickness="1">

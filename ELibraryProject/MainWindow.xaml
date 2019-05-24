@@ -16,7 +16,7 @@
         </Grid.RowDefinitions>
 
         <Grid Name="mainGrid" Grid.Row="1">
-            <home:CustomerView/>
+            <login:LoginPage/>
         </Grid>
         
         <WrapPanel Grid.Row="0" Height="35">

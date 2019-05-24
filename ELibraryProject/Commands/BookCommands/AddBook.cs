@@ -10,7 +10,7 @@ namespace ELibraryProject.Commands.BookCommands
 {
     public class AddBook : ICommand
     {
-        public BookViewModel BookViewModel{ get; set; }
+        public BookViewModel BookViewModel { get; set; }
 
         public AddBook(BookViewModel BookViewModel)
         {

@@ -4,14 +4,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 
 namespace ELibraryProject.ViewModels
 {
-    public class LoginPageViewModel
+    public class LoginPageViewModel:BaseViewModel
     {
-        LogInCommand LogInCommand => new LogInCommand(this);
+      
+       
 
 
-        
     }
 }

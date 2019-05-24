@@ -11,9 +11,9 @@ namespace ELibraryProject.Commands.LoginPageCommands
 {
     public class LogInCommand : ICommand
     {
-        public LoginPageViewModel LoginPageViewModel { get; set; }
+        public MainWindowViewModel LoginPageViewModel { get; set; }
 
-        public LogInCommand(LoginPageViewModel LoginPageViewModel)
+        public LogInCommand(MainWindowViewModel LoginPageViewModel)
         {
             this.LoginPageViewModel = LoginPageViewModel;           
         }
@@ -27,7 +27,11 @@ namespace ELibraryProject.Commands.LoginPageCommands
 
         public void Execute(object parameter)
         {
-            (new MainWindow()).mainGrid.Children.Add(new HomePage());
+           //LoginPageViewModel.MainWindow = new MainWindow();
+
+            LoginPageViewModel.Grid.Children.Clear();
+            LoginPageViewModel.Grid.Children.Add(new HomePage());
+            
         }
     }
 }
