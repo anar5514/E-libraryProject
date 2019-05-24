@@ -18,7 +18,7 @@
                                 Background="#373b3d" Margin="-30,-50,0,0" CornerRadius="10">
                             <Grid>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="Images/usernameicon.png" Width="20" Height="20"/>
+                                    <Image Source="/Images/usernameicon.png" Width="20" Height="20"/>
                                     <TextBox x:Name="inputText" Background="Transparent" 
                                              Foreground="White" FontSize="15" Width="170" 
                                              BorderBrush="{x:Null}" VerticalContentAlignment="Center"
@@ -42,7 +42,7 @@
                                 Margin="-30,-50,0,0" CornerRadius="10">
                             <Grid>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="Images/parolicon.png" Width="20" Height="20"/>
+                                    <Image Source="/Images/parolicon.png" Width="20" Height="20"/>
                                     <PasswordBox x:Name="inputText" 
                                                  Background="Transparent" Foreground="White" 
                                                  FontSize="13" Width="170" BorderBrush="{x:Null}" 
@@ -68,7 +68,7 @@
 
                 <TextBox Style="{StaticResource txtboxusrnmStyle}" Margin="20,180,0,0"/>
                 <TextBox Style="{StaticResource txtboxpwdStyle}" Margin="20,50,0,0"/>
-                <Button Margin="-5,10,0,0" Width="150" Height="50" 
+                <!--<Button Margin="-5,10,0,0" Width="150" Height="50" 
                             Foreground="White" 
                             FontSize="15"
                         Content="Log in" Background="White">
@@ -88,7 +88,7 @@
                                         <ControlTemplate.Triggers>
                                             <Trigger Property="IsMouseOver" Value="True">
                                                 <Setter Property="Background" Value="blue"/>
-                                                
+
                                             </Trigger>
                                             <Trigger Property="IsPressed" Value="true">
                                                 <Setter Property="Background" Value="Transparent"/>
@@ -97,44 +97,21 @@
                                         </ControlTemplate.Triggers>
 
                                     </ControlTemplate>
-                                    
-                                </Setter.Value>
-                            </Setter>
-                            
-                        </Style>
-                    </Button.Style>
-                </Button>
 
-                <!--<Button x:Name="AccountBtn" Width="250" Height="100" Margin="5 5 5 5" >
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="BorderThickness" Value="1 1 1 1"/>
-                            <Setter Property="BorderBrush" Value="#EDEDED"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="Button">
-                                        <Border Name="Myborder"
-                                BorderThickness="{TemplateBinding BorderThickness}"
-                                BorderBrush="{TemplateBinding BorderBrush}"
-                                Background="{TemplateBinding Background}">
-                                            <ContentPresenter HorizontalAlignment="Center"
-                                              VerticalAlignment="Center"/>
-                                        </Border>
-                                    </ControlTemplate>
                                 </Setter.Value>
                             </Setter>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="Green"/>
-                                    <Setter Property="BorderBrush" Value="LightGray"/>
-                                    <Setter Property="BorderThickness" Value="2 2 2 2"/>
-                                </Trigger>
-                            </Style.Triggers>
+
                         </Style>
                     </Button.Style>
                 </Button>-->
 
-            </StackPanel>            
+                <Button Margin="-5,10,0,0" Width="150" Height="50" 
+                            Foreground="Black" 
+                            FontSize="15"
+                        Content="Log in" Background="White" Command="{Binding LogInCommand}"/>
+
+            </StackPanel>
+
         </Border>
     </Grid>
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ELibraryProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
 using System.Data;
@@ -13,5 +14,19 @@ namespace ELibraryProject
     /// </summary>
     public partial class App : Application
     {
+        public App()
+        {
+            //MainWindowViewModel mainWindowViewModel = new MainWindowViewModel();
+            //MainWindow mainWindow = new MainWindow(mainWindowViewModel);
+            //StartupUri = new System.Uri("MainWindow.xaml", UriKind.Relative);
+            //try
+            //{
+            //    Run(mainWindow);
+            //}
+            //catch (Exception ex)
+            //{
+            //    MessageBoxResult a = MessageBox.Show(ex.StackTrace);                
+            //}
+        }
     }
 }

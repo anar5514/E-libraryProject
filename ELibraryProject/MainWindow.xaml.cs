@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ELibraryProject.ViewModels;
+using ELibraryProject.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,15 +22,25 @@ namespace ELibraryProject
     /// </summary>
     public partial class MainWindow : Window
     {
+        public MainWindowViewModel MainWindowViewModel { get; set; }
+        public Grid MainGrid { get => mainGrid; set => mainGrid = value; }
+
         public MainWindow()
         {
             InitializeComponent();
+            MainWindowViewModel = new MainWindowViewModel();
+            DataContext = MainWindowViewModel;
         }
 
         private void DockPanel_MouseDown(object sender, MouseButtonEventArgs e)
         {
             if (e.ChangedButton == MouseButton.Left)
                 this.DragMove();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            App.Current.Shutdown();
         }
     }
 }

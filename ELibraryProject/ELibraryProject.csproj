@@ -54,6 +54,18 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Views\BookView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\BranchView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\CustomerView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\HomePage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -82,7 +94,8 @@
     <Compile Include="Commands\EmployeeCommands\AddEmployee.cs" />
     <Compile Include="Commands\EmployeeCommands\RemoveEmployee.cs" />
     <Compile Include="Commands\EmployeeCommands\UpdateEmployee.cs" />
-    <Compile Include="Commands\HomePageCommands\AppExitCommand.cs" />
+    <Compile Include="Commands\LoginPageCommands\LogInCommand.cs" />
+    <Compile Include="Commands\MainWindowCommands\AppExitCommand.cs" />
     <Compile Include="Commands\UserCommands\AddUser.cs" />
     <Compile Include="Commands\UserCommands\RemoveUser.cs" />
     <Compile Include="Commands\UserCommands\UpdateUser.cs" />
@@ -98,7 +111,19 @@
     <Compile Include="ViewModels\BranchViewModel.cs" />
     <Compile Include="ViewModels\CustomerViewModel.cs" />
     <Compile Include="ViewModels\EmployeeViewModel.cs" />
+    <Compile Include="ViewModels\HomePageViewModel.cs" />
+    <Compile Include="ViewModels\LoginPageViewModel.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\UserViewModel.cs" />
+    <Compile Include="Views\BookView.xaml.cs">
+      <DependentUpon>BookView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\BranchView.xaml.cs">
+      <DependentUpon>BranchView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\CustomerView.xaml.cs">
+      <DependentUpon>CustomerView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\HomePage.xaml.cs">
       <DependentUpon>HomePage.xaml</DependentUpon>
     </Compile>
@@ -136,12 +161,20 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Commands\HomePageCommands\" />
+  </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\usernameicon.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\parolicon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exit1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Images\exit2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

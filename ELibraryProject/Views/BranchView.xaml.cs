@@ -1,5 +1,4 @@
-﻿using ELibraryProject.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,11 +16,11 @@ using System.Windows.Shapes;
 namespace ELibraryProject.Views
 {
     /// <summary>
-    /// Interaction logic for HomePage.xaml
+    /// Interaction logic for BranchView.xaml
     /// </summary>
-    public partial class HomePage : UserControl
+    public partial class BranchView : UserControl
     {
-        public HomePage()
+        public BranchView()
         {
             InitializeComponent();
         }

@@ -9,12 +9,11 @@ namespace ELibraryProject.ViewModels
 {
     public class BaseViewModel : INotifyPropertyChanged
     {
-
         public event PropertyChangedEventHandler PropertyChanged;
 
         public void OnPropertyChanged(PropertyChangedEventArgs args)
         {
-            PropertyChanged.Invoke(this, args);
+            PropertyChanged?.Invoke(this, args);
         }
     }
 }

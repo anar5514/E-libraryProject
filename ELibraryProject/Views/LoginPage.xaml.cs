@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ELibraryProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,15 @@ namespace ELibraryProject
     /// </summary>
     public partial class LoginPage : UserControl
     {
+        public LoginPageViewModel LoginPageViewModel { get; set; }
+
         public LoginPage()
         {
             InitializeComponent();
+
+            this.LoginPageViewModel =new LoginPageViewModel();
+
+            DataContext = LoginPageViewModel;
         }
     }
 }

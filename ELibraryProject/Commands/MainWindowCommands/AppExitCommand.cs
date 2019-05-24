@@ -1,25 +1,27 @@
-﻿using System;
+﻿using ELibraryProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
-using static System.Net.Mime.MediaTypeNames;
 
-namespace ELibraryProject.Commands.HomePageCommands
+namespace ELibraryProject.Commands.MainWindowCommands
 {
     public class AppExitCommand : ICommand
     {
-        public event EventHandler CanExecuteChanged;
+        public MainWindowViewModel MainWindowViewModel { get; set; }
 
-        public AppExitCommand()
+        public AppExitCommand(MainWindowViewModel MainWindowViewModel)
         {
-
+            this.MainWindowViewModel = MainWindowViewModel;
         }
+
+        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)

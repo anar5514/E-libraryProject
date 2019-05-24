@@ -3,25 +3,33 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:ELibraryProject"
-        xmlns:local1="clr-namespace:ELibraryProject.Views"
+        xmlns:login="clr-namespace:ELibraryProject"
+        xmlns:home="clr-namespace:ELibraryProject.Views"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" WindowStyle="None">
+
 
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
-        <local1:HomePage Grid.Row="1"/>
+
+        <Grid Name="mainGrid" Grid.Row="1">
+            <home:CustomerView/>
+        </Grid>
         
         <WrapPanel Grid.Row="0" Height="35">
             
             <DockPanel MouseDown="DockPanel_MouseDown" Width="736" Background="Black"/>
-            <Button Width="50" Height="30" Content="X" 
+
+            <Button Width="50" Height="30" 
                     FontSize="15" Background="Black" 
-                    Foreground="White" Command="{Binding AppExitCommand}"/>
+                    Foreground="White" Command="{Binding AppExitCommand}" Click="Button_Click">
+                <Button.Content>
+                    <Image Source="/Images/exit2.png"/>
+                </Button.Content>
+            </Button>
             
         </WrapPanel>
             

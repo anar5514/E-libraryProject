@@ -19,30 +19,41 @@
         </Grid.RowDefinitions>
 
         <StackPanel Grid.RowSpan="2" Background="#1d1f20">
-            
-            <Button Width="200" Height="50" 
+
+            <Button Width="200" Height="57" 
                     Background="Transparent" Content="Books" 
-                    Foreground="White" Command="{Binding AddBook}"/>
-            
-            <Button Width="200" Height="50" 
+                    Foreground="White" Command="{Binding AddBook}" 
+                    IsTabStop="False"/>
+
+            <Button Width="200" Height="57" 
                     Background="Transparent" Content="Branches" 
-                    Foreground="White" Command="{Binding AddBook}"/>
-            
-            <Button Width="200" Height="50" 
+                    Foreground="White" Command="{Binding AddBook}"
+                    IsTabStop="False"/>
+
+            <Button Width="200" Height="57" 
                     Background="Transparent" Content="Customers" 
-                    Foreground="White" Command="{Binding AddBook}"/>
-            
-            <Button Width="200" Height="50" 
+                    Foreground="White" Command="{Binding AddBook}"
+                    IsTabStop="False"/>
+
+            <Button Width="200" Height="57" 
                     Background="Transparent" Content="Employees" 
-                    Foreground="White" Command="{Binding AddBook}"/>
-            
-            <Button Width="200" Height="50" 
+                    Foreground="White" Command="{Binding AddBook}"
+                    IsTabStop="False"/>
+
+            <Button Width="200" Height="57" 
                     Background="Transparent" Content="Users" 
-                    Foreground="White" Command="{Binding AddBook}"/>
-            
-            <Button Width="200" Height="50" 
-                    Background="Transparent" Content="Book" 
-                    Foreground="White" Command="{Binding AddBook}"/>
+                    Foreground="White" Command="{Binding AddBook}"
+                    IsTabStop="False"/>
+
+            <Button Width="200" Height="57" 
+                    Background="Transparent" Content="Rental Report Section" 
+                    Foreground="White" Command="{Binding AddBook}"
+                    IsTabStop="False"/>
+
+            <Button Width="200" Height="57" 
+                    Background="Transparent" Content="Sales reports section" 
+                    Foreground="White" Command="{Binding AddBook}"
+                    IsTabStop="False"/>
             
         </StackPanel>
 
