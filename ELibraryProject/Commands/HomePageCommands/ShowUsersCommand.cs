@@ -1,4 +1,5 @@
 ﻿using ELibraryProject.ViewModels;
+using ELibraryProject.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -27,7 +28,7 @@ namespace ELibraryProject.Commands.HomePageCommands
         public void Execute(object parameter)
         {
             MainWindowViewModel.Grid.Children.Clear();
-            //MainWindowViewModel.Grid.Children.Add()
+            MainWindowViewModel.Grid.Children.Add(new UserView());
         }
     }
 }

@@ -1,5 +1,4 @@
-﻿using ELibraryProject.ViewModels;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -17,14 +16,13 @@ using System.Windows.Shapes;
 namespace ELibraryProject.Views
 {
     /// <summary>
-    /// Interaction logic for BookView.xaml
+    /// Interaction logic for EmployeeView.xaml
     /// </summary>
-    public partial class BookView : UserControl
+    public partial class EmployeeView : UserControl
     {
-        public BookView()
+        public EmployeeView()
         {
             InitializeComponent();
-            DataContext = new BookViewModel();
         }
     }
 }

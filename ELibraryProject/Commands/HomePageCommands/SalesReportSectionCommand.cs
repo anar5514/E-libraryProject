@@ -27,7 +27,7 @@ namespace ELibraryProject.Commands.HomePageCommands
         public void Execute(object parameter)
         {
             MainWindowViewModel.Grid.Children.Clear();
-            //MainWindowViewModel.Grid.Children.Add()
+            //MainWindowViewModel.Grid.Children.Add(ne)
         }
     }
 }

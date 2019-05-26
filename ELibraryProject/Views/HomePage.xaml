@@ -6,8 +6,20 @@
              xmlns:local="clr-namespace:ELibraryProject.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style TargetType="{x:Type Button}" x:Key="AllButtonStyle">
+            <Setter Property="FontFamily" Value="Chiller"/>
+            <Setter Property="FontSize" Value="30"/>
+            <Setter Property="Foreground" Value="White"/>
+            <Setter Property="Width" Value="200"/>
+            <Setter Property="Height" Value="57"/>
+            <Setter Property="Background" Value="Transparent"/>
+        </Style>
+    </UserControl.Resources>
+
     <Grid Background="#303641">
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="200"/>
             <ColumnDefinition/>
@@ -18,45 +30,39 @@
             <RowDefinition/>
         </Grid.RowDefinitions>
 
-        <StackPanel Grid.RowSpan="2" Background="#1d1f20">
+        <StackPanel Grid.RowSpan="2" Grid.Column="0" Background="#1d1f20">
 
-            <Button Width="200" Height="57" 
-                    Background="Transparent" Content="Books" 
-                    Foreground="White" Command="{Binding ShowBooksCommand}" 
-                    IsTabStop="False"/>
+            <Button Content="Books" Command="{Binding ShowBooksCommand}" 
+                    Style="{StaticResource AllButtonStyle}"/>
 
-            <Button Width="200" Height="57" 
-                    Background="Transparent" Content="Branches" 
-                    Foreground="White" Command="{Binding ShowBranchesCommand}"
-                    IsTabStop="False"/>
+            <Button Content="Branches" Command="{Binding ShowBranchesCommand}" 
+                    Style="{StaticResource AllButtonStyle}"/>
 
-            <Button Width="200" Height="57" 
-                    Background="Transparent" Content="Customers" 
-                    Foreground="White" Command="{Binding ShowCustomersCommand}"
-                    IsTabStop="False"/>
+            <Button Content="Customers" Command="{Binding ShowCustomersCommand}" 
+                    Style="{StaticResource AllButtonStyle}"/>
 
-            <Button Width="200" Height="57" 
-                    Background="Transparent" Content="Employees" 
-                    Foreground="White" Command="{Binding ShowEmployeesCommand}"
-                    IsTabStop="False"/>
+            <Button Content="Employees" Command="{Binding ShowEmployeesCommand}" 
+                    Style="{StaticResource AllButtonStyle}"/>
 
-            <Button Width="200" Height="57" 
-                    Background="Transparent" Content="Users" 
-                    Foreground="White" Command="{Binding ShowUsersCommand}"
-                    IsTabStop="False"/>
+            <Button Content="Users" Command="{Binding ShowUsersCommand}" 
+                    Style="{StaticResource AllButtonStyle}"/>
 
-            <Button Width="200" Height="57" 
-                    Background="Transparent" Content="Rental Report Section" 
-                    Foreground="White" Command="{Binding RentalReportSectionCommand}"
-                    IsTabStop="False"/>
+            <Button Content="Rental reports section" Command="{Binding RentalReportSection}" 
+                    Style="{StaticResource AllButtonStyle}" FontSize="27"/>
 
-            <Button Width="200" Height="57" 
-                    Background="Transparent" Content="Sales reports section" 
-                    Foreground="White" Command="{Binding SalesReportSectionCommand}"
-                    IsTabStop="False"/>
-            
+            <Button Content="Sales reports section" Command="{Binding SalesReportSection}" 
+                    Style="{StaticResource AllButtonStyle}"/>
+
+            <Button Content="Log out" Command="{Binding LogOutCommand}" 
+                    Style="{StaticResource AllButtonStyle}"/>
+
         </StackPanel>
 
-        
+        <Grid Grid.RowSpan="2" Grid.Column="1">
+            <Grid.Background>
+                <ImageBrush ImageSource="/Images/library.jpg"/>
+            </Grid.Background>
+        </Grid>
+
     </Grid>
 </UserControl>

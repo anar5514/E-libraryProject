@@ -1,5 +1,4 @@
 ﻿using ELibraryProject.ViewModels;
-using ELibraryProject.Views;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,11 +8,11 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.HomePageCommands
 {
-    public class ShowEmployeesCommand : ICommand
+    public class LogOutCommand : ICommand
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
 
-        public ShowEmployeesCommand(MainWindowViewModel MainWindowViewModel)
+        public LogOutCommand(MainWindowViewModel MainWindowViewModel)
         {
             this.MainWindowViewModel = MainWindowViewModel;
         }
@@ -28,7 +27,7 @@ namespace ELibraryProject.Commands.HomePageCommands
         public void Execute(object parameter)
         {
             MainWindowViewModel.Grid.Children.Clear();
-            MainWindowViewModel.Grid.Children.Add(new EmployeeView());
+            MainWindowViewModel.Grid.Children.Add(new LoginPage());
         }
     }
 }

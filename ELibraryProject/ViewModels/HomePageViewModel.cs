@@ -9,6 +9,6 @@ namespace ELibraryProject.ViewModels
 {
     public class HomePageViewModel : BaseViewModel
     {
-        ShowBooksCommand ShowBooksCommand => new ShowBooksCommand(new MainWindowViewModel());
+
     }
 }
