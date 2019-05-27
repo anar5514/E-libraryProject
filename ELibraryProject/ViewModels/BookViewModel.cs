@@ -2,6 +2,7 @@
 using ELibraryProject.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,8 +15,8 @@ namespace ELibraryProject.ViewModels
         public RemoveBook RemoveBook => new RemoveBook(this);
         public UpdateBook UpdateBook => new UpdateBook(this);
 
-        private List<Book> allbooks;
-        public List<Book> AllBooks
+        private ObservableCollection<Book> allbooks;
+        public ObservableCollection<Book> AllBooks
         {
             get
             {
@@ -55,57 +56,43 @@ namespace ELibraryProject.ViewModels
 
                 if (value != null)
                 {
-                    //CurrentBook = SelectedBook.Clone();
+                    CurrentBook = SelectedBook.Clone();
                 }
                 OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(SelectedBook)));
             }
         }
 
-        private Branch selectedBranch;
-        public Branch SelectedBranch
-        {
-            get
-            {
-                return selectedBranch;
-            }
-            set
-            {
-                selectedBranch = value;
-                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(SelectedBranch)));
-            }
-        }
-
-        public List<Branch> Branches { get; set; }
+        public ObservableCollection<Branch> Branches { get; set; }
 
         public int LastAddedBookID { get => allbooks.Last().Id; }
 
         public BookViewModel()
         {
-            Branches = new List<Branch>()
-            {
-                new Branch()
-                {
-                    Id = 0,
-                    Address = "Nizami r-nu",
-                    Name = "Nizami"
-                },
+            Branches = new ObservableCollection<Branch>()
+            {           
+                 new Branch()
+                 {
+                     Id = 0,
+                     Address = "Nizami r-nu",
+                     Name = "Nizami"
+                 },
 
-                new Branch()
-                {
-                    Id = 1,
-                    Name = "Nerimanov",
-                    Address = "Nerimanov r-nu"
-                },
+                 new Branch()
+                 {
+                     Id = 1,
+                     Name = "Nerimanov",
+                     Address = "Nerimanov r-nu"
+                 },
 
-                new Branch()
-                {
-                    Id = 2,
-                    Name = "Sebail",
-                    Address = "Sebail r-nu"
-                }
+                 new Branch()
+                 {
+                     Id = 2,
+                     Name = "Sebail",
+                     Address = "Sebail r-nu"
+                 }
             };
 
-            AllBooks = new List<Book>()
+            AllBooks = new ObservableCollection<Book>()
             {
                 new Book()
                 {
@@ -114,7 +101,7 @@ namespace ELibraryProject.ViewModels
                      Branch = new Branch(){Name = "Nerimanov", Address = "Nerimanov r-nu"},
                      BuyPrice = 15,
                      SalePrice = 35,
-                     Count = 50,
+                     PageCount = 50,
                      No = 1,
                 }
             };

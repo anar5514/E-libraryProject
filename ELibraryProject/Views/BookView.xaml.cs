@@ -23,8 +23,9 @@ namespace ELibraryProject.Views
     {
         public BookView()
         {
+            BookViewModel bookViewModel = new BookViewModel();
             InitializeComponent();
-            DataContext = new BookViewModel();
+            DataContext = bookViewModel;
         }
     }
 }

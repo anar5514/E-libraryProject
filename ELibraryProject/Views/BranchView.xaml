@@ -82,7 +82,24 @@
         <StackPanel Grid.Row="0" Width="500" Margin="0,0,0,0" Orientation="Horizontal" Height="100">
             <WrapPanel Width="250" Margin="0,0,0,0">
                 <Label Style="{StaticResource AllLabelStyle}" Content="Branch name :"/>
-                <TextBox Style="{StaticResource AllTextBoxStyle}" Margin="30,20,0,0"/>
+                <TextBox Margin="30,20,0,0">
+                    <TextBox.Template>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border BorderBrush="{x:Null}" BorderThickness="1" Height="33" Width="200" 
+                                Background="Black" CornerRadius="10" Opacity="0.7">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Width="180" Height="30"
+                                             Foreground="White" Background="Transparent"
+                                             CaretBrush="White" BorderBrush="{x:Null}"
+                                             VerticalContentAlignment="Center" Margin="9,0,0,0"
+                                             FontSize="15" FontFamily="Times New Roman" Text="{Binding CurrentBranch.}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
             </WrapPanel>
 
             <WrapPanel Width="250" Margin="0,0,0,0">
