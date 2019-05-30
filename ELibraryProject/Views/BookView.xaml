@@ -9,7 +9,7 @@
 
     <UserControl.Resources>
 
-        <Style TargetType="{x:Type TextBox}" x:Key="AllTextBoxStyle">
+        <!--<Style TargetType="{x:Type TextBox}" x:Key="AllTextBoxStyle">
             <Setter Property="Margin" Value="10,0,0,0"/>
             <Setter Property="Template">
                 <Setter.Value>
@@ -29,7 +29,7 @@
                     </ControlTemplate>
                 </Setter.Value>
             </Setter>
-        </Style>
+        </Style>-->
 
         <Style TargetType="{x:Type Label}" x:Key="AllLabelStyle">
             <Setter Property="Width" Value="120"/>
@@ -45,8 +45,7 @@
         </Style>
 
     </UserControl.Resources>
-    
-    
+        
     <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -57,6 +56,7 @@
             <RowDefinition Height="165"/>
             <RowDefinition Height="50"/>
             <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
 
         <Grid.Background>
@@ -64,17 +64,81 @@
         </Grid.Background>
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
-            <Button Width="100" Content="Add" Height="40"  Margin="-500,0,0,0" Command="{Binding AddBook}"/>
-            <Button Width="100" Content="Delete" Height="40" Margin="0,0,0,0"/>
-            <Button Width="100" Content="Update" Height="40" Margin="500,0,0,0"/>
+            <Button Width="100" Content="Add" Height="40"  Margin="-500,0,0,0" Command="{Binding AddBook}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{ Binding State}" Value="4">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="2">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="1">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="3">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="100" Content="Delete" Height="40" Margin="0,0,0,0" Command="{Binding RemoveBook}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State}" Value="4">
+                                <Setter Property="IsEnabled"  Value="True"/>
+                            </DataTrigger>
+                            
+                            <DataTrigger Binding="{Binding State}" Value="2">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="1">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="3">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="100" Content="Update" Height="40" Margin="500,0,0,0" Command="{Binding UpdateBook}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State}" Value="4">
+                                <Setter Property="IsEnabled"  Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="3">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="1">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
         
         <StackPanel>
             <WrapPanel Width="350" >
                 
                 <Label Content="Book name :" Width="120"
-                       Style="{StaticResource AllLabelStyle}" FontSize="30"/>
-                <TextBox >
+                       Style="{StaticResource AllLabelStyle}" FontSize="27"/>
+                <TextBox TabIndex="0">
                     <TextBox.Template>
                         <ControlTemplate TargetType="{x:Type TextBox}">
                             <Border BorderBrush="{x:Null}" BorderThickness="1" Height="33" Width="200" 
@@ -83,14 +147,17 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox Width="180" Height="30"
                                              Foreground="White" Background="Transparent"
-                                             CaretBrush="White" BorderBrush="{x:Null}"
+                                             CaretBrush="White" BorderBrush="Black" BorderThickness="3"
                                              VerticalContentAlignment="Center" Margin="9,0,0,0"
-                                             FontSize="15" FontFamily="Times New Roman" Text="{Binding CurrentBook.Name, Mode=TwoWay}"/>
+                                             FontSize="15" FontFamily="Times New Roman" 
+                                                 Text="{Binding CurrentBook.Name, Mode=TwoWay}"
+                                                  />
                                     </StackPanel>
                                 </Grid>
                             </Border>
                         </ControlTemplate>
                     </TextBox.Template>
+                    
                 </TextBox>
                 
             </WrapPanel>
@@ -98,8 +165,8 @@
             <WrapPanel Width="350">
                 
                 <Label Content="Author name :" Width="120" Style="{StaticResource AllLabelStyle}"
-                       FontSize="25"/>
-                <TextBox>
+                       FontSize="24"/>
+                <TextBox TabIndex="1">
                     <TextBox.Template>
                         <ControlTemplate TargetType="{x:Type TextBox}">
                             <Border BorderBrush="{x:Null}" BorderThickness="1" Height="33" Width="200" 
@@ -108,7 +175,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox Width="180" Height="30"
                                              Foreground="White" Background="Transparent"
-                                             CaretBrush="White" BorderBrush="{x:Null}"
+                                             CaretBrush="White" BorderBrush="Black" BorderThickness="3"
                                              VerticalContentAlignment="Center" Margin="9,0,0,0"
                                              FontSize="15" FontFamily="Times New Roman" 
                                                  Text="{Binding CurrentBook.AuthorName, Mode=TwoWay}"/>
@@ -124,7 +191,7 @@
             <WrapPanel Width="350">
 
                 <Label Content="Buy price :" Width="120" Style="{StaticResource AllLabelStyle}" FontSize="30"/>
-                <TextBox>
+                <TextBox TabIndex="2">
                     <TextBox.Template>
                         <ControlTemplate TargetType="{x:Type TextBox}">
                             <Border BorderBrush="{x:Null}" BorderThickness="1" Height="33" Width="200" 
@@ -133,7 +200,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox Width="180" Height="30"
                                              Foreground="White" Background="Transparent"
-                                             CaretBrush="White" BorderBrush="{x:Null}"
+                                             CaretBrush="White" BorderBrush="Black" BorderThickness="3"
                                              VerticalContentAlignment="Center" Margin="9,0,0,0"
                                              FontSize="15" FontFamily="Times New Roman" 
                                                  Text="{Binding CurrentBook.BuyPrice, Mode=TwoWay}"/>
@@ -154,7 +221,7 @@
 
             <WrapPanel Width="350" >
                 <Label Content="Sale price :" Width="120" Style="{StaticResource AllLabelStyle}" FontSize="30"/>
-                <TextBox>
+                <TextBox TabIndex="3">
                     <TextBox.Template>
                         <ControlTemplate TargetType="{x:Type TextBox}">
                             <Border BorderBrush="{x:Null}" BorderThickness="1" Height="33" Width="200" 
@@ -163,7 +230,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox Width="180" Height="30"
                                              Foreground="White" Background="Transparent"
-                                             CaretBrush="White" BorderBrush="{x:Null}"
+                                             CaretBrush="White" BorderBrush="Black" BorderThickness="3"
                                              VerticalContentAlignment="Center" Margin="9,0,0,0"
                                              FontSize="15" FontFamily="Times New Roman" 
                                                  Text="{Binding CurrentBook.SalePrice, Mode=TwoWay}"/>
@@ -177,7 +244,7 @@
 
             <WrapPanel Width="350">
                 <Label Content="Page count :" Width="120" Style="{StaticResource AllLabelStyle}" FontSize="27"/>
-                <TextBox >
+                <TextBox TabIndex="4">
                     <TextBox.Template>
                         <ControlTemplate TargetType="{x:Type TextBox}">
                             <Border BorderBrush="{x:Null}" BorderThickness="1" Height="33" Width="200" 
@@ -186,7 +253,7 @@
                                     <StackPanel Orientation="Horizontal">
                                         <TextBox Width="180" Height="30"
                                              Foreground="White" Background="Transparent"
-                                             CaretBrush="White" BorderBrush="{x:Null}"
+                                             CaretBrush="White" BorderBrush="Black" BorderThickness="3"
                                              VerticalContentAlignment="Center" Margin="9,0,0,0"
                                              FontSize="15" FontFamily="Times New Roman" 
                                                  Text="{Binding CurrentBook.PageCount, Mode=TwoWay}"/>
@@ -202,7 +269,8 @@
                 <Label Content="Branch :" Width="120" Style="{StaticResource AllLabelStyle}" FontSize="30"/>
                 <ComboBox Width="190" Height="30" Margin="15,0,0,0" Background="Black" 
                           ItemsSource="{Binding Branches}"
-                           DisplayMemberPath="Name" SelectedItem="{Binding CurrentBook.Branch}" Opacity="0.7"/>
+                           DisplayMemberPath="Name" SelectedItem="{Binding CurrentBook.Branch}" 
+                          Opacity="0.7" TabIndex="5"/>
             </WrapPanel>
 
         </StackPanel>
@@ -214,7 +282,7 @@
                     <GridViewColumn Header="No" Width="30">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding No}"></TextBlock>
+                                <TextBlock Padding="5,0" Text="{Binding Id}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -263,6 +331,8 @@
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <Button Width="350" Content="BACK TO MAIN MENU" Height="45" Grid.Row="3" Grid.ColumnSpan="2" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ELibraryProject.Commands.HomePageCommands
@@ -28,7 +29,11 @@ namespace ELibraryProject.Commands.HomePageCommands
         public void Execute(object parameter)
         {
             MainWindowViewModel.Grid.Children.Clear();
-            MainWindowViewModel.Grid.Children.Add(new BookView());
+            MainWindowViewModel.Grid.Children.Add(new BookView(MainWindowViewModel));
+            //if (MainWindowViewModel.Grid.Children.OfType<UIElement>().FirstOrDefault(x => x is BookView) != null)
+            //    MainWindowViewModel.LastOBJ.Visibility = Visibility.Visible;
+            //else
+            //    MainWindowViewModel.Grid.Children.Add(new BookView(MainWindowViewModel));
         }
     }
 }

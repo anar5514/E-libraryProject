@@ -1,4 +1,5 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,12 +22,15 @@ namespace ELibraryProject.Commands.BranchCommands
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            BranchViewModel.AllBranches.Remove(BranchViewModel.SelectedBranch);
+            BranchViewModel.AllBranches.Add(BranchViewModel.CurrentBranch);
+            BranchViewModel.State = 3;
+            BranchViewModel.CurrentBranch = new Branch();
         }
     }
 }

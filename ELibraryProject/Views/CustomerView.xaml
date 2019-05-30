@@ -51,6 +51,7 @@
             <RowDefinition Height="180"/>
             <RowDefinition Height="50"/>
             <RowDefinition/>
+            <RowDefinition Height="50"/>
         </Grid.RowDefinitions>
         
         <Grid.ColumnDefinitions>
@@ -65,44 +66,195 @@
         <StackPanel Grid.Column="0">
             <WrapPanel Height="50" Width="350" Margin="0,30,0,0">
                 <Label Style="{StaticResource AllLabelStyle }" Content="First name :"/>
-                <TextBox Style="{StaticResource AllTextBoxStyle}"/>
+                <TextBox>
+                    <TextBox.Template>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border BorderBrush="{x:Null}" BorderThickness="1" Height="33" Width="200" 
+                                    Background="Black" CornerRadius="10" Opacity="0.7">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Width="180" Height="30"
+                                                 Foreground="White" Background="Transparent"
+                                                 CaretBrush="White" BorderBrush="Black" BorderThickness="3"
+                                                 VerticalContentAlignment="Center" Margin="9,0,0,0"
+                                                 FontSize="15" FontFamily="Times New Roman"
+                                                  Text="{Binding CurrentCustomer.Name, Mode=TwoWay}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
             </WrapPanel>
 
             <WrapPanel Height="50" Width="350" Margin="0,30,0,0">
                 <Label Style="{StaticResource AllLabelStyle }" Content="Last name :"/>
-                <TextBox Style="{StaticResource AllTextBoxStyle}"/>
+                <TextBox >
+                    <TextBox.Template>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border BorderBrush="{x:Null}" BorderThickness="1" Height="33" Width="200" 
+                                    Background="Black" CornerRadius="10" Opacity="0.7">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Width="180" Height="30"
+                                                 Foreground="White" Background="Transparent"
+                                                 CaretBrush="White" BorderBrush="Black" BorderThickness="3"
+                                                 VerticalContentAlignment="Center" Margin="9,0,0,0"
+                                                 FontSize="15" FontFamily="Times New Roman"
+                                                  Text="{Binding CurrentCustomer.Surname, Mode=TwoWay}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
             </WrapPanel>
         </StackPanel>
 
         <StackPanel Grid.Column="1">
             <WrapPanel Height="50" Width="350" Margin="0,30,0,0">
                 <Label Style="{StaticResource AllLabelStyle }" Content="Phone number :" FontSize="23"/>
-                <TextBox Style="{StaticResource AllTextBoxStyle}"/>
+                <TextBox>
+                    <TextBox.Template>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border BorderBrush="{x:Null}" BorderThickness="1" Height="33" Width="200" 
+                                    Background="Black" CornerRadius="10" Opacity="0.7">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Width="180" Height="30"
+                                                 Foreground="White" Background="Transparent"
+                                                 CaretBrush="White" BorderBrush="Black" BorderThickness="3"
+                                                 VerticalContentAlignment="Center" Margin="9,0,0,0"
+                                                 FontSize="15" FontFamily="Times New Roman"
+                                                  Text="{Binding CurrentCustomer.PhoneNumber, Mode=TwoWay}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
             </WrapPanel>
 
             <WrapPanel Height="50" Width="350" Margin="0,30,0,0">
                 <Label Style="{StaticResource AllLabelStyle }" Content="Joined date :" FontSize="25"/>
-                <TextBox Style="{StaticResource AllTextBoxStyle}"/>
+                <DatePicker Height="30" Width="220" Text="{Binding CurrentCustomer.JoinedDate, Mode=TwoWay}" Background="Black"/>
             </WrapPanel>
         </StackPanel>
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
-            <Button Width="100" Content="Add" Height="40"  Margin="-500,0,0,0"/>
-            <Button Width="100" Content="Delete" Height="40" Margin="0,0,0,0"/>
-            <Button Width="100" Content="Update" Height="40" Margin="500,0,0,0"/>
+            <Button Width="100" Content="Add" Height="40"  Margin="-500,0,0,0" Command="{Binding AddCustomer}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{ Binding State}" Value="4">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="2">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="1">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="3">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="100" Content="Delete" Height="40" Margin="0,0,0,0" Command="{Binding RemoveCustomer}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State}" Value="4">
+                                <Setter Property="IsEnabled"  Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="2">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="1">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="3">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
+            <Button Width="100" Content="Update" Height="40" Margin="500,0,0,0" Command="{Binding UpdateCustomer}">
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State}" Value="4">
+                                <Setter Property="IsEnabled"  Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="3">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="1">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
 
-        <ListView Grid.ColumnSpan="2" Grid.Row="2" Background="White" Opacity="0.7">
+        <ListView Grid.ColumnSpan="2" Grid.Row="2" Background="White" Opacity="0.7" 
+                  ItemsSource="{Binding AllCustomers}" SelectedItem="{Binding SelectedCustomer}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="No" Width="30"/>
-                    <GridViewColumn Header="First name" Width="125"/>
-                    <GridViewColumn Header="Last name" Width="125"/>
-                    <GridViewColumn Header="Phone number" Width="125"/>
-                    <GridViewColumn Header="Joined date" Width="125"/>
+                    <GridViewColumn Header="No" Width="30">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding Id}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="First name" Width="125">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding Name}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Last name" Width="125" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding Surname}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Phone number" Width="125" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding PhoneNumber}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="Joined date" Width="125" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding JoinedDate}"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
                 </GridView>
             </ListView.View>
         </ListView>
+
+        <Button Width="350" Content="BACK TO MAIN MENU" Height="45" Grid.Row="3" Grid.ColumnSpan="2" Click="Button_Click"/>
 
     </Grid>
 </UserControl>

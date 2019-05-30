@@ -14,5 +14,16 @@ namespace ELibraryProject.Entities
         public string Surname { get; set; }
         public string PhoneNumber { get; set; }
         public DateTime JoinedDate { get; set; }
+
+        public Customer Clone()
+        {
+            Customer customer = new Customer();
+            customer.Name = Name;
+            customer.Surname = Surname;
+            customer.PhoneNumber = PhoneNumber;
+            customer.JoinedDate = JoinedDate;
+            customer.Id = Id;
+            return customer;
+        }
     }
 }

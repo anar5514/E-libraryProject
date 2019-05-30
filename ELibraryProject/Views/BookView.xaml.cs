@@ -21,11 +21,22 @@ namespace ELibraryProject.Views
     /// </summary>
     public partial class BookView : UserControl
     {
-        public BookView()
+        public MainWindowViewModel MainWindowViewModel { get; set; }
+
+        public BookView(MainWindowViewModel MainWindowViewModel)
         {
+            this.MainWindowViewModel = MainWindowViewModel;
+
             BookViewModel bookViewModel = new BookViewModel();
             InitializeComponent();
             DataContext = bookViewModel;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //MainWindowViewModel.Grid.Children.Cast<UIElement>().Last().Visibility = Visibility.Hidden;
+            MainWindowViewModel.LastOBJ.Visibility = Visibility.Hidden;
+            MainWindowViewModel.Grid.Children.Add(new HomePage());
         }
     }
 }

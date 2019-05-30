@@ -15,6 +15,20 @@ namespace ELibraryProject.ViewModels
         public RemoveBook RemoveBook => new RemoveBook(this);
         public UpdateBook UpdateBook => new UpdateBook(this);
 
+        private int state;
+        public int State
+        {
+            get
+            {
+                return state;
+            }
+            set
+            {
+                state = value;
+                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(State)));
+            }
+        }
+
         private ObservableCollection<Book> allbooks;
         public ObservableCollection<Book> AllBooks
         {
@@ -56,6 +70,7 @@ namespace ELibraryProject.ViewModels
 
                 if (value != null)
                 {
+                    State = 4;
                     CurrentBook = SelectedBook.Clone();
                 }
                 OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(SelectedBook)));
@@ -64,7 +79,19 @@ namespace ELibraryProject.ViewModels
 
         public ObservableCollection<Branch> Branches { get; set; }
 
-        public int LastAddedBookID { get => allbooks.Last().Id; }
+        public int LastAddedBookID
+        {
+            get
+            {
+                if (allbooks.Count != 0)
+                    return AllBooks.Last().Id;
+                else
+                {
+                    int result = 0;
+                    return result;
+                }
+            }
+        }
 
         public BookViewModel()
         {
@@ -92,25 +119,10 @@ namespace ELibraryProject.ViewModels
                  }
             };
 
-            AllBooks = new ObservableCollection<Book>()
-            {
-                new Book()
-                {
-                    Name = "Sefiller",
-                    AuthorName = "Viktor Huqo",
-                     Branch = new Branch(){Name = "Nerimanov", Address = "Nerimanov r-nu"},
-                     BuyPrice = 15,
-                     SalePrice = 35,
-                     PageCount = 50,
-                     No = 1,
-                }
-            };
+            AllBooks = new ObservableCollection<Book>();
 
             CurrentBook = new Book();
         }
-
-
-
 
     }
 }

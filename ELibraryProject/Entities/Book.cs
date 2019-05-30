@@ -9,7 +9,6 @@ namespace ELibraryProject.Entities
     public class Book
     {
         public int Id { get; set; }
-        public int No { get; set; }
         public string Name { get; set; }
         public string AuthorName { get; set; }
         public double BuyPrice { get; set; }
@@ -23,10 +22,10 @@ namespace ELibraryProject.Entities
             newbook.AuthorName = this.AuthorName;
             newbook.Branch = this.Branch;
             newbook.Name = this.Name;
-            newbook.No = this.No;
             newbook.PageCount = this.PageCount;
             newbook.BuyPrice = this.BuyPrice;
             newbook.SalePrice = this.SalePrice;
+            newbook.Id = this.Id;
             return newbook;
         }
     }

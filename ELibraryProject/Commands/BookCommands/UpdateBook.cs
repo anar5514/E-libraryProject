@@ -21,12 +21,14 @@ namespace ELibraryProject.Commands.BookCommands
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            BookViewModel.AllBooks.Remove(BookViewModel.SelectedBook);
+            BookViewModel.AllBooks.Add(BookViewModel.CurrentBook);
+            BookViewModel.State = 3;
         }
     }
 }

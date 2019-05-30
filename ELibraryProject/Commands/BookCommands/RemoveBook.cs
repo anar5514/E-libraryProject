@@ -1,4 +1,5 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,12 +22,14 @@ namespace ELibraryProject.Commands.BookCommands
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            BookViewModel.AllBooks.Remove(BookViewModel.SelectedBook);
+            BookViewModel.CurrentBook = new Book();
+            BookViewModel.State = 2;
         }
     }
 }

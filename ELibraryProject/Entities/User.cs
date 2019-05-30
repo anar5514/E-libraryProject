@@ -9,8 +9,15 @@ namespace ELibraryProject.Entities
     public class User
     {
         public int Id { get; set; }
-        public int No { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
+
+        public User Clone()
+        {
+            User user = new User();
+            user.UserName = UserName;
+            user.Password = Password;
+            return user;
+        }
     }
 }

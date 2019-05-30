@@ -7,7 +7,8 @@
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
         xmlns:home="clr-namespace:ELibraryProject.Views"
         mc:Ignorable="d"
-        Title="MainWindow" Height="500" Width="800" WindowStyle="None" ResizeMode="NoResize">
+        Title="MainWindow" Height="500" Width="800" WindowStyle="None" ResizeMode="NoResize" 
+        WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid.RowDefinitions>

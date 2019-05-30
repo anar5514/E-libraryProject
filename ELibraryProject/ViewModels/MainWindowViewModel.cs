@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Controls;
 
 namespace ELibraryProject.ViewModels
@@ -15,6 +16,12 @@ namespace ELibraryProject.ViewModels
     public class MainWindowViewModel : BaseViewModel
     {
         public Grid Grid { get; set; }
+
+        public UIElement LastOBJ
+        {
+            get => Grid.Children.OfType<UIElement>().Last();
+            set => value = Grid.Children.OfType<UIElement>().Last();
+        }
 
         public LogInCommand LogInCommand => new LogInCommand(this);
 
@@ -35,6 +42,8 @@ namespace ELibraryProject.ViewModels
         public AppExitCommand AppExitCommand => new AppExitCommand(this);
 
         public LogOutCommand LogOutCommand => new LogOutCommand(this);
+
+
 
     }
 }

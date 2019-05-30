@@ -2,6 +2,7 @@
 using ELibraryProject.Entities;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,12 +11,26 @@ namespace ELibraryProject.ViewModels
 {
     public class BranchViewModel : BaseViewModel
     {
-        AddBranch AddBranch => new AddBranch(this);
-        RemoveBranch RemoveBranch => new RemoveBranch(this);
-        UpdateBranch UpdateBranch => new UpdateBranch(this);
+        public AddBranch AddBranch => new AddBranch(this);
+        public RemoveBranch RemoveBranch => new RemoveBranch(this);
+        public UpdateBranch UpdateBranch => new UpdateBranch(this);
 
-        private List<Branch> allBranches;
-        public List<Branch> AllBranches
+        private int state;
+        public int State
+        {
+            get
+            {
+                return state;
+            }
+            set
+            {
+                state = value;
+                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(State)));
+            }
+        }
+
+        private ObservableCollection<Branch> allBranches;
+        public ObservableCollection<Branch> AllBranches
         {
             get
             {
@@ -42,7 +57,41 @@ namespace ELibraryProject.ViewModels
             }
         }
 
+        private Branch selectedBranch;
+        public Branch SelectedBranch
+        {
+            get
+            {
+                return selectedBranch;
+            }
+            set
+            {
+                State = 4;
+                selectedBranch = value;
+                CurrentBranch = SelectedBranch.Clone();
+                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(SelectedBranch)));
+            }
+        }
 
+        public int LastAddedBranchID
+        {
+            get
+            {
+                if (allBranches.Count != 0)
+                    return allBranches.Last().Id;
+                else
+                {
+                    int result = 0;
+                    return result;
+                }
+            }
+        }
 
+        public BranchViewModel()
+        {
+            AllBranches = new ObservableCollection<Branch>();
+
+            CurrentBranch = new Branch();
+        }
     }
 }

@@ -1,9 +1,11 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ELibraryProject.Commands.CustomerCommands
@@ -21,12 +23,35 @@ namespace ELibraryProject.Commands.CustomerCommands
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            var zz = CustomerViewModel.CurrentCustomer;
+
+            if (zz.Name != null && zz.Surname != null && zz.PhoneNumber != null &&
+                zz.JoinedDate.Date != null)
+            {
+
+                var item = CustomerViewModel.AllCustomers.FirstOrDefault(x => x.Id == CustomerViewModel.CurrentCustomer.Id);
+
+                if (item == null)
+                {
+                    CustomerViewModel.CurrentCustomer.Id = CustomerViewModel.LastAddedCustomerID + 1;
+                    CustomerViewModel.AllCustomers.Add(CustomerViewModel.CurrentCustomer);
+                    CustomerViewModel.State = 1;
+
+                    MessageBoxResult add = MessageBox.Show("Added");
+                    CustomerViewModel.CurrentCustomer = new Customer();
+
+                }
+                else
+                {
+                    MessageBoxResult add = MessageBox.Show("Can not add this item, you can only update and delete");
+                    CustomerViewModel.CurrentCustomer = new Customer();
+                }
+            }
         }
     }
 }

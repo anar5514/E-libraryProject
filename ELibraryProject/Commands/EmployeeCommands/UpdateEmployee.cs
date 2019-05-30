@@ -1,4 +1,5 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,12 +22,15 @@ namespace ELibraryProject.Commands.EmployeeCommands
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            EmployeeViewModel.AllEmployees.Remove(EmployeeViewModel.SelectedEmployee);
+            EmployeeViewModel.AllEmployees.Add(EmployeeViewModel.CurrentEmployee);
+            EmployeeViewModel.State = 3;
+            EmployeeViewModel.CurrentEmployee = new Employee();
         }
     }
 }

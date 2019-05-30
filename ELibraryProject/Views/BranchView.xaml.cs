@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ELibraryProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,22 @@ namespace ELibraryProject.Views
     /// </summary>
     public partial class BranchView : UserControl
     {
-        public BranchView()
+        public MainWindowViewModel MainWindowViewModel { get; set; }
+
+        public BranchView(MainWindowViewModel MainWindowViewModel)
         {
+            this.MainWindowViewModel = MainWindowViewModel;
+
             InitializeComponent();
+
+            DataContext = new BranchViewModel();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            //MainWindowViewModel.Grid.Children.Cast<UIElement>().Last().Visibility = Visibility.Hidden;
+            MainWindowViewModel.Grid.Children.Clear();
+            MainWindowViewModel.Grid.Children.Add(new HomePage());
         }
     }
 }
