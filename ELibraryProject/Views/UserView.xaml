@@ -89,12 +89,46 @@
         <StackPanel>
             <WrapPanel Margin="0,30,0,0">
                 <Label Style="{StaticResource AllLabelStyle}" Content="Username :" FontFamily="Chiller" FontSize="30"/>
-                <TextBox Style="{StaticResource AllTextBoxStyle}"/>
+                <TextBox TabIndex="0">
+                    <TextBox.Template>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border BorderBrush="{x:Null}" BorderThickness="1" Height="30" Width="200" 
+                                Background="Black" CornerRadius="10" Opacity="0.7">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <TextBox Width="180" Height="25"
+                                             Foreground="White" Background="Transparent"
+                                             CaretBrush="White" BorderBrush="Black" BorderThickness="3"
+                                             VerticalContentAlignment="Center" Margin="9,0,0,0"
+                                             FontSize="15" FontFamily="Times New Roman" Text="{Binding CurrentUser.Username}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
             </WrapPanel>
 
             <WrapPanel Margin="0,30,0,0">
                 <Label Style="{StaticResource AllLabelStyle}" Content="Password :" FontFamily="Chiller" FontSize="30"/>
-                <PasswordBox Style="{StaticResource AllPasswordBoxStyle}"/>
+                <TextBox TabIndex="1">
+                    <TextBox.Template>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border BorderBrush="{x:Null}" BorderThickness="1" Height="30" Width="200" 
+                                Background="Black" CornerRadius="10" Opacity="0.7">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <PasswordBox Width="180" Height="25"
+                                             Foreground="White" Background="Transparent"
+                                             CaretBrush="White" BorderBrush="Black" BorderThickness="3"
+                                             VerticalContentAlignment="Center" Margin="9,0,0,0"
+                                             FontSize="15" FontFamily="Times New Roman"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
             </WrapPanel>
         </StackPanel>
 

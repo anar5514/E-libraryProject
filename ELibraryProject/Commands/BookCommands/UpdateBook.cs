@@ -1,4 +1,5 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,7 @@ namespace ELibraryProject.Commands.BookCommands
             BookViewModel.AllBooks.Remove(BookViewModel.SelectedBook);
             BookViewModel.AllBooks.Add(BookViewModel.CurrentBook);
             BookViewModel.State = 3;
+            BookViewModel.CurrentBook = new Book();
         }
     }
 }
