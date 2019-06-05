@@ -54,7 +54,7 @@
                     Style="{StaticResource AllButtonStyle}"/>
 
             <Button Content="Log out" Command="{Binding LogOutCommand}" 
-                    Style="{StaticResource AllButtonStyle}"/>
+                    Style="{StaticResource AllButtonStyle}" FontWeight="Bold" FontSize="45"/>
 
         </StackPanel>
 

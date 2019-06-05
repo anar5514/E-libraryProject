@@ -26,8 +26,20 @@ namespace ELibraryProject.Commands.HomePageCommands
 
         public void Execute(object parameter)
         {
-            MainWindowViewModel.Grid.Children.Clear();
-            //MainWindowViewModel.Grid.Children.Add(ne)
+            //var HasSalesView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+            //    .FirstOrDefault(x => x is Sale) != null;
+            //var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+            //    .FirstOrDefault(x => x is HomePage);
+            //var BookView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+            //    .FirstOrDefault(x => x is BookView);
+
+            //if (HasBookView)
+            //{
+            //    HomePage.Visibility = Visibility.Hidden;
+            //    BookView.Visibility = Visibility.Visible;
+            //}
+            //else
+            //    MainWindowViewModel.Grid.Children.Add(new BookView(MainWindowViewModel));
         }
     }
 }

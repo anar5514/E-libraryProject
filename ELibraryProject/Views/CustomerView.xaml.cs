@@ -34,9 +34,13 @@ namespace ELibraryProject.Views
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //MainWindowViewModel.Grid.Children.Cast<UIElement>().Last().Visibility = Visibility.Hidden;
-            MainWindowViewModel.Grid.Children.Clear();
-            MainWindowViewModel.Grid.Children.Add(new HomePage());
+            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+                .FirstOrDefault(x => x is HomePage);
+            var CustomerView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+                .FirstOrDefault(x => x is CustomerView);
+
+            CustomerView.Visibility = Visibility.Hidden;
+            HomePage.Visibility = Visibility.Visible;
         }
     }
 }

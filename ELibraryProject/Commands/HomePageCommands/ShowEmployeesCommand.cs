@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using System.Windows.Input;
 
 namespace ELibraryProject.Commands.HomePageCommands
@@ -27,8 +28,20 @@ namespace ELibraryProject.Commands.HomePageCommands
 
         public void Execute(object parameter)
         {
-            MainWindowViewModel.Grid.Children.Clear();
-            MainWindowViewModel.Grid.Children.Add(new EmployeeView(MainWindowViewModel));
+            var HasEmployeeView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+                 .FirstOrDefault(x => x is EmployeeView) != null;
+            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+                .FirstOrDefault(x => x is HomePage);
+            var EmployeeView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+                .FirstOrDefault(x => x is EmployeeView);
+
+            if (HasEmployeeView)
+            {
+                HomePage.Visibility = Visibility.Hidden;
+                EmployeeView.Visibility = Visibility.Visible;
+            }
+            else
+                MainWindowViewModel.Grid.Children.Add(new EmployeeView(MainWindowViewModel));
         }
     }
 }

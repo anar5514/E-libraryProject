@@ -14,6 +14,8 @@ namespace ELibraryProject.Commands.HomePageCommands
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
 
+        public int MyProperty { get; set; }
+
         public ShowBooksCommand(MainWindowViewModel MainWindowViewModel)
         {
             this.MainWindowViewModel = MainWindowViewModel;
@@ -28,12 +30,20 @@ namespace ELibraryProject.Commands.HomePageCommands
 
         public void Execute(object parameter)
         {
-            MainWindowViewModel.Grid.Children.Clear();
-            MainWindowViewModel.Grid.Children.Add(new BookView(MainWindowViewModel));
-            //if (MainWindowViewModel.Grid.Children.OfType<UIElement>().FirstOrDefault(x => x is BookView) != null)
-            //    MainWindowViewModel.LastOBJ.Visibility = Visibility.Visible;
-            //else
-            //    MainWindowViewModel.Grid.Children.Add(new BookView(MainWindowViewModel));
+            var HasBookView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+                .FirstOrDefault(x => x is BookView) != null;
+            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+                .FirstOrDefault(x => x is HomePage);
+            var BookView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
+                .FirstOrDefault(x => x is BookView);
+
+            if (HasBookView)
+            {
+                HomePage.Visibility = Visibility.Hidden;
+                BookView.Visibility = Visibility.Visible;
+            }
+            else
+                MainWindowViewModel.Grid.Children.Add(new BookView(MainWindowViewModel));
         }
     }
 }

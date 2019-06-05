@@ -73,10 +73,24 @@ namespace ELibraryProject.ViewModels
             }
         }
 
+        public int LastAddedUserID
+        {
+            get
+            {
+                if (allUsers.Count != 0)
+                    return allUsers.Last().Id;
+                else
+                {
+                    int result = 0;
+                    return result;
+                }
+            }
+        }
+
         public UserViewModel()
         {
             AllUsers = new ObservableCollection<User>();
-            CurrentUser = new User();
+            CurrentUser = new User() { Permissions = new Permission() { } };
         }
     }
 }

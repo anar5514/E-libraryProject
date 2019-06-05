@@ -148,7 +148,7 @@
     <Compile Include="Entities\Branch.cs" />
     <Compile Include="Entities\Customer.cs" />
     <Compile Include="Entities\Employee.cs" />
-    <Compile Include="Entities\Permisson.cs" />
+    <Compile Include="Entities\Permission.cs" />
     <Compile Include="Entities\User.cs" />
     <Compile Include="Extension classes\BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
