@@ -1,4 +1,6 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.UserCommands
 {
-    public class RemoveUser : ICommand
+    public class RemoveUser : BaseCommand, ICommand
     {
         public UserViewModel UserViewModel { get; set; }
 
@@ -26,7 +28,13 @@ namespace ELibraryProject.Commands.UserCommands
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            UserViewModel.AllUsers.Remove(UserViewModel.SelectedUser);
+            UserViewModel.CurrentUser = new User();
+            UserViewModel.State = 2;
+
+            //UnitOfWork = new SqlUnitOfWork();
+            //UnitOfWork.UserRepository.Delete(UserViewModel.CurrentUser);
+            //UnitOfWork.SaveChanges();
         }
     }
 }

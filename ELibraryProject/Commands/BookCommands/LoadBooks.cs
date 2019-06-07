@@ -3,6 +3,7 @@ using ELibraryProject.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,16 +11,16 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.BookCommands
 {
-    public class RemoveBook : BaseCommand, ICommand
+    public class LoadBooks : BaseCommand, ICommand
     {
         public BookViewModel BookViewModel { get; set; }
 
-        public RemoveBook(BookViewModel BookViewModel)
+        public event EventHandler CanExecuteChanged;
+
+        public LoadBooks(BookViewModel BookViewModel)
         {
             this.BookViewModel = BookViewModel;
         }
-
-        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
@@ -28,13 +29,8 @@ namespace ELibraryProject.Commands.BookCommands
 
         public void Execute(object parameter)
         {
-            BookViewModel.AllBooks.Remove(BookViewModel.SelectedBook);
-            BookViewModel.CurrentBook = new Book();
-            BookViewModel.State = 2;
-
             UnitOfWork = new SqlUnitOfWork();
-            UnitOfWork.BookRepository.Delete(BookViewModel.CurrentBook);
-            UnitOfWork.SaveChanges();
+            //BookViewModel.AllBooks = UnitOfWork.BookRepository.GetAll();
         }
     }
 }

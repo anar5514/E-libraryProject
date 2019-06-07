@@ -14,6 +14,7 @@ namespace ELibraryProject.ViewModels
         public AddBook AddBook => new AddBook(this);
         public RemoveBook RemoveBook => new RemoveBook(this);
         public UpdateBook UpdateBook => new UpdateBook(this);
+        public LoadBooks LoadBooks => new LoadBooks(this);
 
         private int state;
         public int State
@@ -122,6 +123,9 @@ namespace ELibraryProject.ViewModels
             AllBooks = new ObservableCollection<Book>();
 
             CurrentBook = new Book();
+
+
+                 
         }
 
     }

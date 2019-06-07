@@ -1,4 +1,5 @@
-﻿using ELibraryProject.Entities;
+﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.BookCommands
 {
-    public class AddBook : ICommand
+    public class AddBook : BaseCommand, ICommand
     {
         public BookViewModel BookViewModel { get; set; }
 
@@ -33,11 +34,14 @@ namespace ELibraryProject.Commands.BookCommands
             if (zz.AuthorName != null && zz.Branch != null &&
                 zz.Name != null && zz.PageCount != 0 && zz.SalePrice != 0 && zz.BuyPrice != 0)
             {            
-
                 var item = BookViewModel.AllBooks.FirstOrDefault(x => x.Id == BookViewModel.CurrentBook.Id);
           
                 if (item == null)
                 {
+                    UnitOfWork = new SqlUnitOfWork();
+                    UnitOfWork.BookRepository.Add(BookViewModel.CurrentBook);
+                    UnitOfWork.SaveChanges();
+
                     BookViewModel.CurrentBook.Id = BookViewModel.LastAddedBookID + 1;
                     BookViewModel.AllBooks.Add(BookViewModel.CurrentBook);
                     BookViewModel.State = 1;

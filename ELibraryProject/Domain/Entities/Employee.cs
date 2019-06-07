@@ -12,8 +12,10 @@ namespace ELibraryProject.Entities
         public string Name { get; set; }
         public string Surname { get; set; }
         public string PhoneNumber { get; set; }
-        public Branch Branch { get; set; }
         public int Salary { get; set; }
+
+        public int BranchId { get; set; }
+        public Branch Branch { get; set; }
 
         public Employee Clone()
         {
@@ -24,6 +26,7 @@ namespace ELibraryProject.Entities
             employee.Branch = Branch;
             employee.Salary = Salary;
             employee.Id = Id;
+            employee.BranchId = BranchId;
             return employee;
         }
     }

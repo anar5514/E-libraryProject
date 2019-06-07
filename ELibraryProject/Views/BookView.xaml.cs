@@ -26,8 +26,9 @@ namespace ELibraryProject.Views
         public BookView(MainWindowViewModel MainWindowViewModel)
         {
             this.MainWindowViewModel = MainWindowViewModel;
-
+            
             BookViewModel bookViewModel = new BookViewModel();
+            bookViewModel.LoadBooks.Execute(null);
             InitializeComponent();
             DataContext = bookViewModel;
         }
@@ -41,6 +42,8 @@ namespace ELibraryProject.Views
 
             BookView.Visibility = Visibility.Hidden;
             HomePage.Visibility = Visibility.Visible;
+
+            
         }
     }
 }

@@ -14,6 +14,8 @@ namespace ELibraryProject.Entities
         public double BuyPrice { get; set; }
         public double SalePrice{ get; set; }
         public int PageCount { get; set; }
+
+        public int BranchId { get; set; }
         public Branch Branch { get; set; }
 
         public Book Clone()
@@ -26,6 +28,7 @@ namespace ELibraryProject.Entities
             newbook.BuyPrice = this.BuyPrice;
             newbook.SalePrice = this.SalePrice;
             newbook.Id = this.Id;
+            newbook.BranchId = BranchId;
             return newbook;
         }
     }

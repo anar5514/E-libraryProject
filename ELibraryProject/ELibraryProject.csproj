@@ -56,6 +56,12 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="MaterialDesignColors, Version=1.1.2.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialDesignColors.1.1.2\lib\net45\MaterialDesignColors.dll</HintPath>
     </Reference>
@@ -63,7 +69,10 @@
       <HintPath>..\packages\MaterialDesignThemes.2.5.1\lib\net45\MaterialDesignThemes.Wpf.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -81,7 +90,26 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Commands\BaseCommand.cs" />
+    <Compile Include="Commands\BookCommands\LoadBooks.cs" />
     <Compile Include="Commands\HomePageCommands\LogOutCommand.cs" />
+    <Compile Include="DataAccess\BookRepository.cs" />
+    <Compile Include="DataAccess\BranchRepository.cs" />
+    <Compile Include="DataAccess\CustomerRepository.cs" />
+    <Compile Include="DataAccess\EmployeeRepository.cs" />
+    <Compile Include="DataAccess\PermissionRepository.cs" />
+    <Compile Include="DataAccess\SqlUnitOfWork.cs" />
+    <Compile Include="DataAccess\UserRepository.cs" />
+    <Compile Include="Domain\Abstractions\IBookRepository.cs" />
+    <Compile Include="Domain\Abstractions\IBranchRepository.cs" />
+    <Compile Include="Domain\Abstractions\ICustomerRepository.cs" />
+    <Compile Include="Domain\Abstractions\IEmployeeRepository.cs" />
+    <Compile Include="Domain\Abstractions\IPermissionRepository.cs" />
+    <Compile Include="Domain\Abstractions\IRepository.cs" />
+    <Compile Include="Domain\Abstractions\IUnitOfWork.cs" />
+    <Compile Include="Domain\Abstractions\IUserRepository.cs" />
+    <Compile Include="DataAccess\ELibraryDbContext.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Views\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
@@ -144,12 +172,12 @@
     <Compile Include="Commands\UserCommands\AddUser.cs" />
     <Compile Include="Commands\UserCommands\RemoveUser.cs" />
     <Compile Include="Commands\UserCommands\UpdateUser.cs" />
-    <Compile Include="Entities\Book.cs" />
-    <Compile Include="Entities\Branch.cs" />
-    <Compile Include="Entities\Customer.cs" />
-    <Compile Include="Entities\Employee.cs" />
-    <Compile Include="Entities\Permission.cs" />
-    <Compile Include="Entities\User.cs" />
+    <Compile Include="Domain\Entities\Book.cs" />
+    <Compile Include="Domain\Entities\Branch.cs" />
+    <Compile Include="Domain\Entities\Customer.cs" />
+    <Compile Include="Domain\Entities\Employee.cs" />
+    <Compile Include="Domain\Entities\Permission.cs" />
+    <Compile Include="Domain\Entities\User.cs" />
     <Compile Include="Extension classes\BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BookViewModel.cs" />

@@ -8,7 +8,7 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.BookCommands
 {
-    public class UpdateBook : ICommand
+    public class UpdateBook : BaseCommand, ICommand
     {
         public BookViewModel BookViewModel { get; set; }
 
@@ -29,6 +29,9 @@ namespace ELibraryProject.Commands.BookCommands
             BookViewModel.AllBooks.Remove(BookViewModel.SelectedBook);
             BookViewModel.AllBooks.Add(BookViewModel.CurrentBook);
             BookViewModel.State = 3;
+
+            UnitOfWork.BookRepository.Update(BookViewModel.CurrentBook);
+            UnitOfWork.SaveChanges();
         }
     }
 }

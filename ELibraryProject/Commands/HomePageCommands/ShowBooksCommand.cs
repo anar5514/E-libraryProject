@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.HomePageCommands
 {
-    public class ShowBooksCommand : ICommand
+    public class ShowBooksCommand : BaseCommand, ICommand
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
 
