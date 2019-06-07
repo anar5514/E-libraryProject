@@ -58,6 +58,7 @@ namespace ELibraryProject.Commands.BookCommands
             }
 
         }
+        public int MyProperty { get; set; }
 
     }
 }
