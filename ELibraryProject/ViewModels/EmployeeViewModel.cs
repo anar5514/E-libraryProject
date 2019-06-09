@@ -14,6 +14,7 @@ namespace ELibraryProject.ViewModels
         public AddEmployee AddEmployee => new AddEmployee(this);
         public RemoveEmployee RemoveEmployee => new RemoveEmployee(this);
         public UpdateEmployee UpdateEmployee => new UpdateEmployee(this);
+        public LoadEmployees LoadEmployees => new LoadEmployees(this);
 
         private ObservableCollection<Employee> allEmployees;
         public ObservableCollection<Employee> AllEmployees
@@ -93,29 +94,7 @@ namespace ELibraryProject.ViewModels
 
         public EmployeeViewModel()
         {
-            Branches = new ObservableCollection<Branch>()
-            {
-                 new Branch()
-                 {
-                     Id = 0,
-                     Address = "Nizami r-nu",
-                     Name = "Nizami"
-                 },
-
-                 new Branch()
-                 {
-                     Id = 1,
-                     Name = "Nerimanov",
-                     Address = "Nerimanov r-nu"
-                 },
-
-                 new Branch()
-                 {
-                     Id = 2,
-                     Name = "Sebail",
-                     Address = "Sebail r-nu"
-                 }
-            };
+            Branches = new ObservableCollection<Branch>();
 
             AllEmployees = new ObservableCollection<Employee>();
 

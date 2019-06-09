@@ -10,29 +10,58 @@ namespace ELibraryProject.DataAccess
 {
     public class BranchRepository : IBranchRepository
     {
+        private ELibraryDbContext context;
+
         public void Add(Branch ent)
         {
-            throw new NotImplementedException();
+            using (context = new ELibraryDbContext())
+            {
+                context.Branches.Add(ent);
+                context.SaveChanges();
+            }
         }
 
         public void Delete(Branch ent)
         {
-            throw new NotImplementedException();
+            using (context = new ELibraryDbContext())
+            {
+                context.Entry(ent).State = System.Data.Entity.EntityState.Unchanged;
+                context.Branches.Remove(ent);
+                context.Entry(ent).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
-        public IQueryable<Branch> GetAll()
+        public IEnumerable<Branch> GetAll()
         {
-            throw new NotImplementedException();
+            IEnumerable<Branch> list;
+            using (context = new ELibraryDbContext())
+            {
+                list = new List<Branch>(context.Branches);
+                context.SaveChanges();
+            }
+            return list;
         }
 
         public Branch GetById(int id)
         {
-            throw new NotImplementedException();
+            Branch branch;
+            using (context = new ELibraryDbContext())
+            {
+                branch = new Branch();
+                branch = context.Branches.FirstOrDefault(x => x.Id == id);
+                context.SaveChanges();
+            }
+            return branch;
         }
 
         public void Update(Branch ent)
         {
-            throw new NotImplementedException();
+            using (context = new ELibraryDbContext())
+            {
+                context.Entry(ent).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
         }
     }
 }

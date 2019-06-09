@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.EmployeeCommands
 {
-    public class UpdateEmployee : ICommand
+    public class UpdateEmployee : BaseCommand, ICommand
     {
         public EmployeeViewModel EmployeeViewModel { get; set; }
 
@@ -30,6 +30,8 @@ namespace ELibraryProject.Commands.EmployeeCommands
             EmployeeViewModel.AllEmployees.Remove(EmployeeViewModel.SelectedEmployee);
             EmployeeViewModel.AllEmployees.Add(EmployeeViewModel.CurrentEmployee);
             EmployeeViewModel.State = 3;
+
+            UnitOfWork.EmployeeRepository.Update(EmployeeViewModel.CurrentEmployee);
             EmployeeViewModel.CurrentEmployee = new Employee();
         }
     }

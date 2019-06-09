@@ -28,20 +28,8 @@ namespace ELibraryProject.Commands.HomePageCommands
 
         public void Execute(object parameter)
         {
-            var HasBranchView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is BranchView) != null;
-            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is HomePage);
-            var BranchView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is BranchView);
-
-            if (HasBranchView)
-            {
-                HomePage.Visibility = Visibility.Hidden;
-                BranchView.Visibility = Visibility.Visible;
-            }
-            else
-                MainWindowViewModel.Grid.Children.Add(new BranchView(MainWindowViewModel));
+            MainWindowViewModel.Grid.Children.Clear();
+            MainWindowViewModel.Grid.Children.Add(new BranchView(MainWindowViewModel));
         }
     }
 }

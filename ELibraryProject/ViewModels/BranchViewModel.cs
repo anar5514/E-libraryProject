@@ -14,6 +14,7 @@ namespace ELibraryProject.ViewModels
         public AddBranch AddBranch => new AddBranch(this);
         public RemoveBranch RemoveBranch => new RemoveBranch(this);
         public UpdateBranch UpdateBranch => new UpdateBranch(this);
+        public LoadBranches LoadBranches => new LoadBranches(this);
 
         private int state;
         public int State
@@ -66,24 +67,14 @@ namespace ELibraryProject.ViewModels
             }
             set
             {
-                State = 4;
                 selectedBranch = value;
-                CurrentBranch = SelectedBranch.Clone();
-                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(SelectedBranch)));
-            }
-        }
 
-        public int LastAddedBranchID
-        {
-            get
-            {
-                if (allBranches.Count != 0)
-                    return allBranches.Last().Id;
-                else
+                if (value != null)
                 {
-                    int result = 0;
-                    return result;
+                    State = 4;
+                    CurrentBranch = SelectedBranch.Clone();
                 }
+                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(SelectedBranch)));
             }
         }
 

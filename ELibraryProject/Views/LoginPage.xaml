@@ -13,7 +13,7 @@
             <Setter Property="Template">
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type TextBox}">
-                        
+
                         <Border BorderBrush="{x:Null}" BorderThickness="1" Height="30" Width="200" 
                                 Background="#373b3d" Margin="-30,-50,0,0" CornerRadius="10">
                             <Grid>
@@ -33,11 +33,11 @@
             </Setter>
         </Style>
 
-        <Style x:Key="txtboxpwdStyle" TargetType="{x:Type TextBox}">
+        <Style x:Key="txtboxpwdStyle" TargetType="{x:Type PasswordBox}">
             <Setter Property="Template">
                 <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-                        
+                    <ControlTemplate TargetType="{x:Type PasswordBox}">
+
                         <Border BorderBrush="{x:Null}" BorderThickness="1" 
                                 Height="30" Width="200" Background="#373b3d" 
                                 Margin="-30,-50,0,0" CornerRadius="10">
@@ -56,10 +56,10 @@
                 </Setter.Value>
             </Setter>
         </Style>
- 
+
 
     </UserControl.Resources>
-   
+
 
     <Grid Name="MainGrid">
         <Grid.Background>
@@ -70,8 +70,11 @@
                 BorderThickness="3">
             <StackPanel Height="400" Width="250" Background="#1d1f20" Opacity="0.9">
 
-                <TextBox Style="{StaticResource txtboxusrnmStyle}" Margin="20,180,0,0" TabIndex="0"/>
-                <TextBox Style="{StaticResource txtboxpwdStyle}" Margin="20,50,0,0" TabIndex="1"/>
+                <TextBox Style="{StaticResource txtboxusrnmStyle}" Margin="20,180,0,0" TabIndex="0"
+                         Text="{Binding UserOnSystem.UserName}"/>
+                <PasswordBox Name="pwdBox" Style="{StaticResource txtboxpwdStyle}" Margin="20,50,0,0" 
+                             TabIndex="1"
+                         />
                 <!--<Button Margin="-5,10,0,0" Width="150" Height="50" 
                             Foreground="White" 
                             FontSize="15"
@@ -109,15 +112,29 @@
                     </Button.Style>
                 </Button>-->
 
-                <Button Margin="-5,10,0,0" Width="150" Height="50" 
+                <Button Name="btnLogin" Margin="-5,10,0,0" Width="150" Height="50" 
                         Foreground="Black" 
                         FontSize="15"
-                    Content="Log in" Background="White" Command="{Binding LogInCommand}"/>
+                    Content="Log in" Background="White" Command="{Binding LogInCommand}" 
+                        CommandParameter="{Binding ElementName=pwdBox}"/>
 
             </StackPanel>
 
         </Border>
+
+        <Label Name="lblLang" Content="Language" Width="150" Height="30" 
+               Margin="640,10,10,380" 
+               Foreground="White" 
+               HorizontalContentAlignment="Center" 
+               Background="Black"
+               Opacity="0.7"/>
+
+        <Button Width="50" Height="30" Content="TR" Click="Button_Click" Margin="660,45,90,345" 
+                RenderTransformOrigin="0.4,-0.333" Background="Black" Foreground="White" Opacity="0.7"/>
+
+        <Button Width="50" Height="30" Content="EN" Click="Button_Click_1" Margin="715,45,35,345" 
+                RenderTransformOrigin="0.4,-0.333" Background="Black" Foreground="White" Opacity="0.7"/>
     </Grid>
 
-    
+
 </UserControl>

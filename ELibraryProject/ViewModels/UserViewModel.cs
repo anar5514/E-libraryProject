@@ -29,6 +29,20 @@ namespace ELibraryProject.ViewModels
             }
         }
 
+        private User userOnSystem;
+        public User UserOnSystem
+        {
+            get
+            {
+                return userOnSystem;
+            }
+            set
+            {
+                userOnSystem = value;
+                OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(UserOnSystem)));
+            }
+        }
+
         private int state;
         public int State
         {

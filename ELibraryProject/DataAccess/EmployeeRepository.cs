@@ -10,29 +10,58 @@ namespace ELibraryProject.DataAccess
 {
     public class EmployeeRepository : IEmployeeRepository
     {
+        private ELibraryDbContext context;
+
         public void Add(Employee ent)
         {
-            throw new NotImplementedException();
+            using (context = new ELibraryDbContext())
+            {
+                context.Employees.Add(ent);
+                context.SaveChanges();
+            }
         }
 
         public void Delete(Employee ent)
         {
-            throw new NotImplementedException();
+            using (context = new ELibraryDbContext())
+            {
+                context.Entry(ent).State = System.Data.Entity.EntityState.Unchanged;
+                context.Employees.Remove(ent);
+                context.Entry(ent).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
-        public IQueryable<Employee> GetAll()
+        public IEnumerable<Employee> GetAll()
         {
-            throw new NotImplementedException();
+            IEnumerable<Employee> list;
+            using (context = new ELibraryDbContext())
+            {
+                list = new List<Employee>(context.Employees.Include("Branch"));
+                context.SaveChanges();
+            }
+            return list;
         }
 
         public Employee GetById(int id)
         {
-            throw new NotImplementedException();
+            Employee employee;
+            using (context = new ELibraryDbContext())
+            {
+                employee = new Employee();
+                employee = context.Employees.FirstOrDefault(x => x.Id == id);
+                context.SaveChanges();
+            }
+            return employee;
         }
 
         public void Update(Employee ent)
         {
-            throw new NotImplementedException();
+            using (context = new ELibraryDbContext())
+            {
+                context.Entry(ent).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
         }
     }
 }

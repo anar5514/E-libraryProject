@@ -1,4 +1,5 @@
-﻿using ELibraryProject.Entities;
+﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,14 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.BranchCommands
 {
-    public class AddBranch : ICommand
+    public class AddBranch : BaseCommand, ICommand
     {
         public BranchViewModel BranchViewModel { get; set; }
 
         public AddBranch(BranchViewModel BranchViewModel)
         {
             this.BranchViewModel = BranchViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
 
         public event EventHandler CanExecuteChanged;
@@ -37,7 +39,7 @@ namespace ELibraryProject.Commands.BranchCommands
 
                 if (item == null)
                 {
-                    BranchViewModel.CurrentBranch.Id = BranchViewModel.LastAddedBranchID + 1;
+                    UnitOfWork.BranchRepository.Add(BranchViewModel.CurrentBranch);
                     BranchViewModel.AllBranches.Add(BranchViewModel.CurrentBranch);
                     BranchViewModel.State = 1;
 

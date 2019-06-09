@@ -18,6 +18,7 @@ namespace ELibraryProject.Commands.BookCommands
         public AddBook(BookViewModel BookViewModel)
         {
             this.BookViewModel = BookViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
 
         public event EventHandler CanExecuteChanged;
@@ -37,18 +38,13 @@ namespace ELibraryProject.Commands.BookCommands
                 var item = BookViewModel.AllBooks.FirstOrDefault(x => x.Id == BookViewModel.CurrentBook.Id);
           
                 if (item == null)
-                {
-                    UnitOfWork = new SqlUnitOfWork();
+                {                    
                     UnitOfWork.BookRepository.Add(BookViewModel.CurrentBook);
-                    UnitOfWork.SaveChanges();
-
-                    BookViewModel.CurrentBook.Id = BookViewModel.LastAddedBookID + 1;
                     BookViewModel.AllBooks.Add(BookViewModel.CurrentBook);
                     BookViewModel.State = 1;
 
                     MessageBoxResult add = MessageBox.Show("Added");
                     BookViewModel.CurrentBook = new Book();
-
                 }
                 else
                 {
@@ -58,7 +54,6 @@ namespace ELibraryProject.Commands.BookCommands
             }
 
         }
-        public int MyProperty { get; set; }
 
     }
 }

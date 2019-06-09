@@ -1,4 +1,5 @@
-﻿using ELibraryProject.Entities;
+﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,13 +10,14 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.CustomerCommands
 {
-    public class UpdateCustomer : ICommand
+    public class UpdateCustomer : BaseCommand, ICommand
     {
         public CustomerViewModel CustomerViewModel { get; set; }
 
         public UpdateCustomer(CustomerViewModel CustomerViewModel)
         {
             this.CustomerViewModel = CustomerViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
 
         public event EventHandler CanExecuteChanged;
@@ -30,6 +32,8 @@ namespace ELibraryProject.Commands.CustomerCommands
             CustomerViewModel.AllCustomers.Remove(CustomerViewModel.SelectedCustomer);
             CustomerViewModel.AllCustomers.Add(CustomerViewModel.CurrentCustomer);
             CustomerViewModel.State = 3;
+
+            UnitOfWork.CustomerRepository.Update(CustomerViewModel.CurrentCustomer);
             CustomerViewModel.CurrentCustomer = new Customer();
         }
     }

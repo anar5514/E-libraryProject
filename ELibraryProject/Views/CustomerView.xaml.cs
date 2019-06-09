@@ -21,7 +21,7 @@ namespace ELibraryProject.Views
     /// </summary>
     public partial class CustomerView : UserControl
     {
-        public MainWindowViewModel MainWindowViewModel { get; set; } 
+        public MainWindowViewModel MainWindowViewModel { get; set; }
 
         public CustomerView(MainWindowViewModel MainWindowViewModel)
         {
@@ -29,18 +29,17 @@ namespace ELibraryProject.Views
 
             InitializeComponent();
 
-            DataContext = new CustomerViewModel();
+            CustomerViewModel customerViewModel = new CustomerViewModel();
+
+            customerViewModel.LoadCustomers.Execute(null);
+            
+            DataContext = customerViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is HomePage);
-            var CustomerView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is CustomerView);
-
-            CustomerView.Visibility = Visibility.Hidden;
-            HomePage.Visibility = Visibility.Visible;
+            MainWindowViewModel.Grid.Children.Clear();
+            MainWindowViewModel.Grid.Children.Add(new HomePage());
         }
     }
 }

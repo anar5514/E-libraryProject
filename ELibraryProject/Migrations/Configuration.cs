@@ -10,6 +10,7 @@ namespace ELibraryProject.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
+            AutomaticMigrationDataLossAllowed = true;
             ContextKey = "ELibraryProject.ELibraryDbContext";
         }
 

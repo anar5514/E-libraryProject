@@ -1,4 +1,5 @@
-﻿using ELibraryProject.Entities;
+﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -10,13 +11,14 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.CustomerCommands
 {
-    public class AddCustomer : ICommand
+    public class AddCustomer : BaseCommand, ICommand
     {
         public CustomerViewModel CustomerViewModel { get; set; }
 
         public AddCustomer(CustomerViewModel CustomerViewModel)
         {
             this.CustomerViewModel = CustomerViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
 
         public event EventHandler CanExecuteChanged;
@@ -38,7 +40,9 @@ namespace ELibraryProject.Commands.CustomerCommands
 
                 if (item == null)
                 {
-                    CustomerViewModel.CurrentCustomer.Id = CustomerViewModel.LastAddedCustomerID + 1;
+                    
+                    UnitOfWork.CustomerRepository.Add(CustomerViewModel.CurrentCustomer);
+
                     CustomerViewModel.AllCustomers.Add(CustomerViewModel.CurrentCustomer);
                     CustomerViewModel.State = 1;
 

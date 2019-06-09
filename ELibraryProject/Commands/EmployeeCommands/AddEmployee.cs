@@ -10,7 +10,7 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.EmployeeCommands
 {
-    public class AddEmployee : ICommand
+    public class AddEmployee : BaseCommand, ICommand
     {
         public EmployeeViewModel EmployeeViewModel { get; set; }
 
@@ -31,15 +31,16 @@ namespace ELibraryProject.Commands.EmployeeCommands
             var zz = EmployeeViewModel.CurrentEmployee;
 
             if (zz.Name != null && zz.Branch != null
-               && zz.Surname != null && zz.Salary != 0 
+               && zz.Surname != null && zz.Salary != 0
                && zz.PhoneNumber != null)
             {
 
-                var item = EmployeeViewModel.AllEmployees.FirstOrDefault(x => x.Id == EmployeeViewModel.CurrentEmployee.Id);
+                var item = EmployeeViewModel.AllEmployees.FirstOrDefault(x => x.Id == 
+                EmployeeViewModel.CurrentEmployee.Id);
 
                 if (item == null)
                 {
-                    EmployeeViewModel.CurrentEmployee.Id = EmployeeViewModel.LastAddedEmployeeID + 1;
+                    UnitOfWork.EmployeeRepository.Add(EmployeeViewModel.CurrentEmployee);
                     EmployeeViewModel.AllEmployees.Add(EmployeeViewModel.CurrentEmployee);
                     EmployeeViewModel.State = 1;
 

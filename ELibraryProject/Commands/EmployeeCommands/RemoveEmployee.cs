@@ -9,7 +9,7 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.EmployeeCommands
 {
-    public class RemoveEmployee : ICommand
+    public class RemoveEmployee :BaseCommand, ICommand
     {
         public EmployeeViewModel EmployeeViewModel { get; set; }
 
@@ -28,8 +28,10 @@ namespace ELibraryProject.Commands.EmployeeCommands
         public void Execute(object parameter)
         {
             EmployeeViewModel.AllEmployees.Remove(EmployeeViewModel.SelectedEmployee);
-            EmployeeViewModel.CurrentEmployee = new Employee();
             EmployeeViewModel.State = 2;
+
+            UnitOfWork.EmployeeRepository.Delete(EmployeeViewModel.CurrentEmployee);
+            EmployeeViewModel.CurrentEmployee = new Employee();
         }
     }
 }

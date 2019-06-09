@@ -28,20 +28,8 @@ namespace ELibraryProject.Commands.HomePageCommands
 
         public void Execute(object parameter)
         {
-            var HasEmployeeView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                 .FirstOrDefault(x => x is EmployeeView) != null;
-            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is HomePage);
-            var EmployeeView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is EmployeeView);
-
-            if (HasEmployeeView)
-            {
-                HomePage.Visibility = Visibility.Hidden;
-                EmployeeView.Visibility = Visibility.Visible;
-            }
-            else
-                MainWindowViewModel.Grid.Children.Add(new EmployeeView(MainWindowViewModel));
+            MainWindowViewModel.Grid.Children.Clear();
+            MainWindowViewModel.Grid.Children.Add(new EmployeeView(MainWindowViewModel));
         }
     }
 }

@@ -9,17 +9,17 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace ELibraryProject.Commands.BookCommands
+namespace ELibraryProject.Commands.BranchCommands
 {
-    public class LoadBooks : BaseCommand, ICommand
+    public class LoadBranches : BaseCommand, ICommand
     {
-        public BookViewModel BookViewModel { get; set; }
+        public BranchViewModel BranchViewModel { get; set; }
 
         public event EventHandler CanExecuteChanged;
 
-        public LoadBooks(BookViewModel BookViewModel)
+        public LoadBranches(BranchViewModel BranchViewModel)
         {
-            this.BookViewModel = BookViewModel;
+            this.BranchViewModel = BranchViewModel;
             UnitOfWork = new SqlUnitOfWork();
         }
 
@@ -29,9 +29,8 @@ namespace ELibraryProject.Commands.BookCommands
         }
 
         public void Execute(object parameter)
-        {         
-            BookViewModel.Branches = new ObservableCollection<Branch>(UnitOfWork.BranchRepository.GetAll());
-            BookViewModel.AllBooks = new ObservableCollection<Book>(UnitOfWork.BookRepository.GetAll());
+        {
+            BranchViewModel.AllBranches = new ObservableCollection<Branch>(UnitOfWork.BranchRepository.GetAll());
         }
     }
 }

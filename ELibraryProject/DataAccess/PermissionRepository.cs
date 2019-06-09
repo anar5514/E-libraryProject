@@ -3,6 +3,7 @@ using ELibraryProject.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -20,7 +21,7 @@ namespace ELibraryProject.DataAccess
             throw new NotImplementedException();
         }
 
-        public IQueryable<Permission> GetAll()
+        public IEnumerable<Permission> GetAll()
         {
             throw new NotImplementedException();
         }

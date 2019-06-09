@@ -25,7 +25,6 @@ namespace ELibraryProject.DataAccess
 
         public void SaveChanges()
         {
-            context = new ELibraryDbContext();
             context.SaveChanges();
         }
     }

@@ -1,4 +1,6 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +17,7 @@ namespace ELibraryProject.Commands.BookCommands
         public UpdateBook(BookViewModel BookViewModel)
         {
             this.BookViewModel = BookViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
 
         public event EventHandler CanExecuteChanged;
@@ -31,7 +34,7 @@ namespace ELibraryProject.Commands.BookCommands
             BookViewModel.State = 3;
 
             UnitOfWork.BookRepository.Update(BookViewModel.CurrentBook);
-            UnitOfWork.SaveChanges();
+            BookViewModel.CurrentBook = new Book();
         }
     }
 }

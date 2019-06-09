@@ -22,6 +22,7 @@ namespace ELibraryProject.Views
     public partial class BranchView : UserControl
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
+        private BranchViewModel branchViewModel = new BranchViewModel();
 
         public BranchView(MainWindowViewModel MainWindowViewModel)
         {
@@ -29,18 +30,17 @@ namespace ELibraryProject.Views
 
             InitializeComponent();
 
-            DataContext = new BranchViewModel();
+            BranchViewModel branchViewModel = new BranchViewModel();
+
+            branchViewModel.LoadBranches.Execute(null);
+
+            DataContext = branchViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is HomePage);
-            var BranchView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is BranchView);
-
-            BranchView.Visibility = Visibility.Hidden;
-            HomePage.Visibility = Visibility.Visible;
+            MainWindowViewModel.Grid.Children.Clear();
+            MainWindowViewModel.Grid.Children.Add(new HomePage());
         }
     }
 }

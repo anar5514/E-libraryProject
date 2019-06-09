@@ -27,7 +27,6 @@ namespace ELibraryProject.Entities
             newbook.PageCount = this.PageCount;
             newbook.BuyPrice = this.BuyPrice;
             newbook.SalePrice = this.SalePrice;
-            newbook.Id = this.Id;
             newbook.BranchId = BranchId;
             return newbook;
         }

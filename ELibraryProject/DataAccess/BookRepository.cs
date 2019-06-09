@@ -2,6 +2,7 @@
 using ELibraryProject.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace ELibraryProject.DataAccess
             using (context = new ELibraryDbContext())
             {
                 context.Books.Add(ent);
+                context.SaveChanges();
             }
         }
 
@@ -29,26 +31,44 @@ namespace ELibraryProject.DataAccess
         {
             using (context = new ELibraryDbContext())
             {
+                context.Entry(ent).State = System.Data.Entity.EntityState.Unchanged;
                 context.Books.Remove(ent);
+                context.Entry(ent).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
             }
         }
 
-        public IQueryable<Book> GetAll()
+        public IEnumerable<Book> GetAll()
         {
+            IEnumerable<Book> list;
             using (context = new ELibraryDbContext())
             {
-                return context.Set<Book>();
+                list = new List<Book>(context.Books.Include("Branch"));
+                context.SaveChanges();
             }
+            return list;
         }
 
         public Book GetById(int id)
         {
-            return context.Books.FirstOrDefault(x => x.Id == id);
+            Book book;
+            using (context = new ELibraryDbContext())
+            {
+                book = new Book();
+                book = context.Books.FirstOrDefault(x => x.Id == id);
+                context.SaveChanges();
+            }
+            return book;
         }
 
         public void Update(Book ent)
         {
-            context.Entry(ent).State = System.Data.Entity.EntityState.Modified;
+            using (context = new ELibraryDbContext())
+            {
+                context.Entry(ent).State = System.Data.Entity.EntityState.Modified;
+                context.Books.Add(ent);
+                context.SaveChanges();
+            }
         }
     }
 }

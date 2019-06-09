@@ -29,21 +29,16 @@ namespace ELibraryProject.Views
             
             BookViewModel bookViewModel = new BookViewModel();
             bookViewModel.LoadBooks.Execute(null);
+
             InitializeComponent();
+
             DataContext = bookViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is HomePage);
-            var BookView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is BookView);
-
-            BookView.Visibility = Visibility.Hidden;
-            HomePage.Visibility = Visibility.Visible;
-
-            
+            MainWindowViewModel.Grid.Children.Clear();
+            MainWindowViewModel.Grid.Children.Add(new HomePage());
         }
     }
 }

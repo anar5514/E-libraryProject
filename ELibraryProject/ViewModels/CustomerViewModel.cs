@@ -14,6 +14,7 @@ namespace ELibraryProject.ViewModels
         public AddCustomer AddCustomer => new AddCustomer(this);
         public RemoveCustomer RemoveCustomer => new RemoveCustomer(this);
         public UpdateCustomer UpdateCustomer => new UpdateCustomer(this);
+        public LoadCustomers LoadCustomers => new LoadCustomers(this);
 
         private Customer currentCustomer;
         public Customer CurrentCustomer
@@ -56,20 +57,6 @@ namespace ELibraryProject.ViewModels
             {
                 state = value;
                 OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(State)));
-            }
-        }
-
-        public int LastAddedCustomerID
-        {
-            get
-            {
-                if (allCustomers.Count != 0)
-                    return allCustomers.Last().Id;
-                else
-                {
-                    int result = 0;
-                    return result;
-                }
             }
         }
 

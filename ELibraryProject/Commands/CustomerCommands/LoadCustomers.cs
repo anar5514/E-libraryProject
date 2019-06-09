@@ -3,6 +3,7 @@ using ELibraryProject.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,13 +11,13 @@ using System.Windows.Input;
 
 namespace ELibraryProject.Commands.CustomerCommands
 {
-    public class RemoveCustomer : BaseCommand, ICommand
+    public class LoadCustomers : BaseCommand, ICommand
     {
-        public CustomerViewModel CustomerViewModel { get; set; }
+        public CustomerViewModel CustomerVIewModel { get; set; }
 
-        public RemoveCustomer(CustomerViewModel CustomerViewModel)
+        public LoadCustomers(CustomerViewModel CustomerVIewModel)
         {
-            this.CustomerViewModel = CustomerViewModel;
+            this.CustomerVIewModel = CustomerVIewModel;
             UnitOfWork = new SqlUnitOfWork();
         }
 
@@ -28,12 +29,8 @@ namespace ELibraryProject.Commands.CustomerCommands
         }
 
         public void Execute(object parameter)
-        {
-            CustomerViewModel.AllCustomers.Remove(CustomerViewModel.SelectedCustomer);
-            CustomerViewModel.State = 2;
-
-            UnitOfWork.CustomerRepository.Delete(CustomerViewModel.CurrentCustomer);
-            CustomerViewModel.CurrentCustomer = new Customer();
+        {            
+            CustomerVIewModel.AllCustomers = new ObservableCollection<Customer>(UnitOfWork.CustomerRepository.GetAll());
         }
     }
 }

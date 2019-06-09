@@ -69,10 +69,10 @@ namespace ELibraryProject.ViewModels
             {
                 selectedBook = value;
 
-                if (value != null)
-                {
                     State = 4;
                     CurrentBook = SelectedBook.Clone();
+                if (value != null)
+                {
                 }
                 OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(SelectedBook)));
             }
@@ -80,52 +80,11 @@ namespace ELibraryProject.ViewModels
 
         public ObservableCollection<Branch> Branches { get; set; }
 
-        public int LastAddedBookID
-        {
-            get
-            {
-                if (allbooks.Count != 0)
-                    return AllBooks.Last().Id;
-                else
-                {
-                    int result = 0;
-                    return result;
-                }
-            }
-        }
-
         public BookViewModel()
         {
-            Branches = new ObservableCollection<Branch>()
-            {           
-                 new Branch()
-                 {
-                     Id = 0,
-                     Address = "Nizami r-nu",
-                     Name = "Nizami"
-                 },
-
-                 new Branch()
-                 {
-                     Id = 1,
-                     Name = "Nerimanov",
-                     Address = "Nerimanov r-nu"
-                 },
-
-                 new Branch()
-                 {
-                     Id = 2,
-                     Name = "Sebail",
-                     Address = "Sebail r-nu"
-                 }
-            };
-
             AllBooks = new ObservableCollection<Book>();
 
-            CurrentBook = new Book();
-
-
-                 
+            CurrentBook = new Book();               
         }
 
     }

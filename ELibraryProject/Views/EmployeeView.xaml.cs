@@ -16,25 +16,22 @@ namespace ELibraryProject.Views
     public partial class EmployeeView : UserControl
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
+        private EmployeeViewModel employeeViewModel = new EmployeeViewModel();
 
         public EmployeeView(MainWindowViewModel MainWindowViewModel)
         {
             this.MainWindowViewModel = MainWindowViewModel;
 
             InitializeComponent();
+            employeeViewModel.LoadEmployees.Execute(null);
 
             DataContext = new EmployeeViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is HomePage);
-            var EmployeeView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is EmployeeView);
-
-            EmployeeView.Visibility = Visibility.Hidden;
-            HomePage.Visibility = Visibility.Visible;
+            MainWindowViewModel.Grid.Children.Clear();
+            MainWindowViewModel.Grid.Children.Add(new HomePage());
         }
     }
 }

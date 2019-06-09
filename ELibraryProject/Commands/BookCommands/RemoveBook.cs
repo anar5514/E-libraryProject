@@ -17,6 +17,7 @@ namespace ELibraryProject.Commands.BookCommands
         public RemoveBook(BookViewModel BookViewModel)
         {
             this.BookViewModel = BookViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
 
         public event EventHandler CanExecuteChanged;
@@ -29,12 +30,10 @@ namespace ELibraryProject.Commands.BookCommands
         public void Execute(object parameter)
         {
             BookViewModel.AllBooks.Remove(BookViewModel.SelectedBook);
-            BookViewModel.CurrentBook = new Book();
             BookViewModel.State = 2;
-
-            UnitOfWork = new SqlUnitOfWork();
+            
             UnitOfWork.BookRepository.Delete(BookViewModel.CurrentBook);
-            UnitOfWork.SaveChanges();
+            BookViewModel.CurrentBook = new Book();
         }
     }
 }

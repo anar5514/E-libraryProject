@@ -17,12 +17,6 @@ namespace ELibraryProject.ViewModels
     {
         public Grid Grid { get; set; }
 
-        public UIElement LastOBJ
-        {
-            get => Grid.Children.OfType<UIElement>().Last();
-            set => value = Grid.Children.OfType<UIElement>().Last();
-        }
-
         public LogInCommand LogInCommand => new LogInCommand(this);
 
         public ShowBooksCommand ShowBooksCommand => new ShowBooksCommand(this);

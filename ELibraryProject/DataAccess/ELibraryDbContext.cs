@@ -16,6 +16,7 @@ namespace ELibraryProject
         public ELibraryDbContext()
             : base("name=ELibraryDbContext")
         {
+            //AutomaticMigrationDataLossAllowed = true;
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
