@@ -20,5 +20,7 @@ namespace ELibraryProject.Entities
             branch.Address = Address;
             return branch;
         }
+
+        public virtual IEnumerable<Book> Books { get; set; }
     }
 }

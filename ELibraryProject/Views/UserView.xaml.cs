@@ -27,20 +27,17 @@ namespace ELibraryProject.Views
         {
             this.MainWindowViewModel = MainWindowViewModel;
 
-            InitializeComponent();
+            UserViewModel userViewModel = new UserViewModel();
+            userViewModel.LoadUsers.Execute(null);
 
-            DataContext = new UserViewModel();
+            InitializeComponent();
+            DataContext = userViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            var HomePage = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is HomePage);
-            var UserView = MainWindowViewModel.Grid.Children.OfType<UIElement>()
-                .FirstOrDefault(x => x is UserView);
-
-            UserView.Visibility = Visibility.Hidden;
-            HomePage.Visibility = Visibility.Visible;
+            MainWindowViewModel.Grid.Children.Clear();
+            MainWindowViewModel.Grid.Children.Add(new UserView(MainWindowViewModel));
         }
     }
 }

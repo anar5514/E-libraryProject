@@ -269,7 +269,8 @@
                 <Label Content="Branch :" Width="120" Style="{StaticResource AllLabelStyle}" FontSize="30"/>
                 <ComboBox Width="190" Height="30" Margin="15,0,0,0" Background="Black" 
                           ItemsSource="{Binding Branches}"
-                           DisplayMemberPath="Name" SelectedItem="{Binding CurrentBook.Branch}" 
+                           DisplayMemberPath="Name" SelectedItem="{Binding CurrentBook.Branch}" SelectedValuePath="Id" 
+                          SelectedValue="{Binding CurrentBook.Branch.Id}" 
                           Opacity="0.7" TabIndex="5"/>
             </WrapPanel>
 

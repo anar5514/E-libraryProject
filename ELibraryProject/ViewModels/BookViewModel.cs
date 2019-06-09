@@ -69,10 +69,10 @@ namespace ELibraryProject.ViewModels
             {
                 selectedBook = value;
 
-                    State = 4;
-                    CurrentBook = SelectedBook.Clone();
                 if (value != null)
                 {
+                    State = 4;
+                    CurrentBook = SelectedBook.Clone();
                 }
                 OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(SelectedBook)));
             }

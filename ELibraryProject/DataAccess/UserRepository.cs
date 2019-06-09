@@ -15,22 +15,45 @@ namespace ELibraryProject.DataAccess
 
         public void Add(User ent)
         {
-            throw new NotImplementedException();
+            using (context = new ELibraryDbContext())
+            {
+                context.Users.Add(ent);
+                context.SaveChanges();
+            }
         }
 
         public void Delete(User ent)
         {
-            throw new NotImplementedException();
+            using (context = new ELibraryDbContext())
+            {
+                context.Entry(ent).State = System.Data.Entity.EntityState.Unchanged;
+                context.Users.Remove(ent);
+                context.Entry(ent).State = System.Data.Entity.EntityState.Deleted;
+                context.SaveChanges();
+            }
         }
 
         public IEnumerable<User> GetAll()
         {
-            throw new NotImplementedException();
+            IEnumerable<User> list;
+            using (context = new ELibraryDbContext())
+            {
+                list = new List<User>(context.Users);
+                context.SaveChanges();
+            }
+            return list;
         }
 
         public User GetById(int id)
         {
-            throw new NotImplementedException();
+            User user;
+            using (context = new ELibraryDbContext())
+            {
+                user = new User();
+                user = context.Users.FirstOrDefault(x => x.Id == id);
+                context.SaveChanges();
+            }
+            return user;
         }
 
         public bool IsExistUser(User user)
@@ -43,7 +66,11 @@ namespace ELibraryProject.DataAccess
 
         public void Update(User ent)
         {
-            throw new NotImplementedException();
+            using (context = new ELibraryDbContext())
+            {
+                context.Entry(ent).State = System.Data.Entity.EntityState.Modified;
+                context.SaveChanges();
+            }
         }
     }
 }

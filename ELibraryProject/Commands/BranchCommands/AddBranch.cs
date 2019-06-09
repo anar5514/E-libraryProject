@@ -34,24 +34,32 @@ namespace ELibraryProject.Commands.BranchCommands
 
             if (zz.Name != null && zz.Address != null )
             {
+                #region Old COde
+                //var item = BranchViewModel.AllBranches.FirstOrDefault(x => x.Id == BranchViewModel.CurrentBranch.Id);
 
-                var item = BranchViewModel.AllBranches.FirstOrDefault(x => x.Id == BranchViewModel.CurrentBranch.Id);
+                //if (item == null)
+                //{
+                //    UnitOfWork.BranchRepository.Add(BranchViewModel.CurrentBranch);
+                //    BranchViewModel.AllBranches.Add(BranchViewModel.CurrentBranch);
+                //    BranchViewModel.State = 1;
 
-                if (item == null)
-                {
-                    UnitOfWork.BranchRepository.Add(BranchViewModel.CurrentBranch);
-                    BranchViewModel.AllBranches.Add(BranchViewModel.CurrentBranch);
-                    BranchViewModel.State = 1;
+                //    MessageBoxResult add = MessageBox.Show("Added");
+                //    BranchViewModel.CurrentBranch = new Branch();
 
-                    MessageBoxResult add = MessageBox.Show("Added");
-                    BranchViewModel.CurrentBranch = new Branch();
+                //}
+                //else
+                //{
+                //    MessageBoxResult add = MessageBox.Show("Can not add this item, you can only update and delete");
+                //    BranchViewModel.CurrentBranch = new Branch();
+                //}
+                #endregion
 
-                }
-                else
-                {
-                    MessageBoxResult add = MessageBox.Show("Can not add this item, you can only update and delete");
-                    BranchViewModel.CurrentBranch = new Branch();
-                }
+                UnitOfWork.BranchRepository.Add(BranchViewModel.CurrentBranch);
+                BranchViewModel.AllBranches.Add(BranchViewModel.CurrentBranch);
+                BranchViewModel.State = 1;
+
+                MessageBoxResult add = MessageBox.Show("Added");
+                BranchViewModel.CurrentBranch = new Branch();
             }
         }
     }

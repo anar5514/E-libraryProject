@@ -101,19 +101,19 @@
                 <WrapPanel Margin="0,15,0,0" Height="40">
                     <CheckBox Name="createBook" Width="150" Height="45" Background="Black" Content="Create book" 
                               FontSize="35" FontFamily="Chiller" FontWeight="Bold" Foreground="LightGray"
-                              IsChecked="{Binding CurrentUser.Permissions.CanCreateBook}"/>
+                              IsChecked="{Binding CurrentUser.CanCreateBook}"/>
                 </WrapPanel>
 
                 <WrapPanel Margin="0,15,0,0" Height="40">
                     <CheckBox Name="createUser" Width="150" Height="45" Background="Black" Content="Create user" 
                               FontSize="35" FontFamily="Chiller" FontWeight="Bold"  Foreground="LightGray"
-                              IsChecked="{Binding CurrentUser.Permissions.CanCreateUser}"/>
+                              IsChecked="{Binding CurrentUser.CanCreateUser}"/>
                 </WrapPanel>
 
                 <WrapPanel Margin="0,15,0,0" Height="40">
                     <CheckBox Name="createBranch" Width="200" Height="45" Background="Black" Content="Create branch" 
                               FontSize="35" FontFamily="Chiller" FontWeight="Bold"  Foreground="LightGray"
-                              IsChecked="{Binding CurrentUser.Permissions.CanCreateBranch}"/>
+                              IsChecked="{Binding CurrentUser.CanCreateBranch}"/>
                 </WrapPanel>
             </StackPanel>
 
@@ -121,14 +121,14 @@
                 <WrapPanel Margin="20,50,0,0" Height="40">
                     <CheckBox Name="createCustomer" Width="150" Height="45" Background="Black" Content="Create customer" 
                               FontSize="26" FontFamily="Chiller" FontWeight="Bold" Foreground="LightGray"
-                              IsChecked="{Binding CurrentUser.Permissions.CanCreateCustomer, Mode=TwoWay}"/>
+                              IsChecked="{Binding CurrentUser.CanCreateCustomer, Mode=TwoWay}"/>
 
                 </WrapPanel>
 
                 <WrapPanel Margin="20,10,0,0" Height="40">
                     <CheckBox Name="createRent" Width="150" Height="45" Background="Black" Content="Create rent" 
                               FontSize="35" FontFamily="Chiller" FontWeight="Bold" Foreground="LightGray"
-                              IsChecked="{Binding CurrentUser.Permissions.CanRent}"/>
+                              IsChecked="{Binding CurrentUser.CanRent}"/>
 
                 </WrapPanel>
 
@@ -155,45 +155,52 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Username" Width="125">
+                    <GridViewColumn Header="Username" Width="100">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Padding="5,0" Text="{Binding UserName}" Margin="20 0 0 0"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="CanCreateBook" Width="125" >
+                    <GridViewColumn Header="CanCreateBook" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Permissions.CanCreateBook}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Padding="5,0" Text="{Binding CanCreateBook}" Margin="20 0 0 0"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="CanCreateBranch" Width="125" >
+                    <GridViewColumn Header="CanCreateBranch" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Permissions.CanCreateBranch}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Padding="5,0" Text="{Binding CanCreateBranch}" Margin="20 0 0 0"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="CanCreateUser" Width="125" >
+                    <GridViewColumn Header="CanCreateUser" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Permissions.CanCreateUser}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Padding="5,0" Text="{Binding CanCreateUser}" Margin="20 0 0 0"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="CanCreateCustomer" Width="125" >
+                    <GridViewColumn Header="CanCreateCustomer" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Permissions.CanCreateCustomer}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Padding="5,0" Text="{Binding CanCreateCustomer}" Margin="20 0 0 0"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="CanRent" Width="125" >
+                    <GridViewColumn Header="CanRent" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Permissions.CanRent}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Padding="5,0" Text="{Binding CanRent}" Margin="20 0 0 0"></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="CanSale" Width="100" >
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Padding="5,0" Text="{Binding CanSale}" Margin="20 0 0 0"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

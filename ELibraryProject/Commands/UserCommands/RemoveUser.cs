@@ -17,24 +17,23 @@ namespace ELibraryProject.Commands.UserCommands
         public RemoveUser(UserViewModel UserViewModel)
         {
             this.UserViewModel = UserViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
 
         public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
-            throw new NotImplementedException();
+            return true;
         }
 
         public void Execute(object parameter)
         {
             UserViewModel.AllUsers.Remove(UserViewModel.SelectedUser);
-            UserViewModel.CurrentUser = new User();
             UserViewModel.State = 2;
 
-            //UnitOfWork = new SqlUnitOfWork();
-            //UnitOfWork.UserRepository.Delete(UserViewModel.CurrentUser);
-            //UnitOfWork.SaveChanges();
+            UnitOfWork.UserRepository.Delete(UserViewModel.CurrentUser);
+            UserViewModel.CurrentUser = new User();
         }
     }
 }

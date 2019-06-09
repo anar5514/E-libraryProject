@@ -14,13 +14,13 @@ namespace ELibraryProject.Commands.BookCommands
     {
         public BookViewModel BookViewModel { get; set; }
 
+        public event EventHandler CanExecuteChanged;
+
         public UpdateBook(BookViewModel BookViewModel)
         {
             this.BookViewModel = BookViewModel;
             UnitOfWork = new SqlUnitOfWork();
         }
-
-        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {

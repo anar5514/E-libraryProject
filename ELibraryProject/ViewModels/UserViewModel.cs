@@ -14,6 +14,7 @@ namespace ELibraryProject.ViewModels
         public AddUser AddUser => new AddUser(this);
         public RemoveUser RemoveUser => new RemoveUser(this);
         public UpdateUser UpdateUser => new UpdateUser(this);
+        public LoadUsers LoadUsers => new LoadUsers(this);
 
         private ObservableCollection<User> allUsers;
         public ObservableCollection<User> AllUsers
@@ -87,24 +88,10 @@ namespace ELibraryProject.ViewModels
             }
         }
 
-        public int LastAddedUserID
-        {
-            get
-            {
-                if (allUsers.Count != 0)
-                    return allUsers.Last().Id;
-                else
-                {
-                    int result = 0;
-                    return result;
-                }
-            }
-        }
-
         public UserViewModel()
         {
             AllUsers = new ObservableCollection<User>();
-            CurrentUser = new User() { Permissions = new Permission() { } };
+            CurrentUser = new User();
         }
     }
 }

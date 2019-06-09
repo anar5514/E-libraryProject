@@ -141,14 +141,14 @@
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Book name" Width="125">
+                    <GridViewColumn Header="Branch name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Padding="5,0" Text="{Binding Name}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Author name" Width="125" >
+                    <GridViewColumn Header="Branch address" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
                                 <TextBlock Padding="5,0" Text="{Binding Address}"></TextBlock>

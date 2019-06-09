@@ -1,6 +1,7 @@
 namespace ELibraryProject
 {
     using ELibraryProject.Entities;
+    using ELibraryProject.Migrations;
     using System;
     using System.Data.Entity;
     using System.Linq;
@@ -16,7 +17,7 @@ namespace ELibraryProject
         public ELibraryDbContext()
             : base("name=ELibraryDbContext")
         {
-            //AutomaticMigrationDataLossAllowed = true;
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<ELibraryDbContext, Configuration>());
         }
 
         // Add a DbSet for each entity type that you want to include in your model. For more information 
