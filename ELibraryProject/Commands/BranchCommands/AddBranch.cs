@@ -15,13 +15,13 @@ namespace ELibraryProject.Commands.BranchCommands
     {
         public BranchViewModel BranchViewModel { get; set; }
 
+        public event EventHandler CanExecuteChanged;
+
         public AddBranch(BranchViewModel BranchViewModel)
         {
             this.BranchViewModel = BranchViewModel;
             UnitOfWork = new SqlUnitOfWork();
         }
-
-        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {

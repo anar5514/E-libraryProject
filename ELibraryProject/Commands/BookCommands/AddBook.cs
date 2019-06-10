@@ -55,7 +55,6 @@ namespace ELibraryProject.Commands.BookCommands
                 //}
                 #endregion
 
-                BookViewModel.CurrentBook.BranchId = BookViewModel.CurrentBook.Branch.Id;
                 UnitOfWork.BookRepository.Add(BookViewModel.CurrentBook);
                 BookViewModel.AllBooks.Add(BookViewModel.CurrentBook);
                 BookViewModel.State = 1;

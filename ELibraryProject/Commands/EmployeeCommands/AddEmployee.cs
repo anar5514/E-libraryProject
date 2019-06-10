@@ -1,4 +1,5 @@
-﻿using ELibraryProject.Entities;
+﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,13 @@ namespace ELibraryProject.Commands.EmployeeCommands
     {
         public EmployeeViewModel EmployeeViewModel { get; set; }
 
+        public event EventHandler CanExecuteChanged;
+
         public AddEmployee(EmployeeViewModel EmployeeViewModel)
         {
             this.EmployeeViewModel = EmployeeViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
-
-        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {
@@ -35,24 +37,12 @@ namespace ELibraryProject.Commands.EmployeeCommands
                && zz.PhoneNumber != null)
             {
 
-                var item = EmployeeViewModel.AllEmployees.FirstOrDefault(x => x.Id == 
-                EmployeeViewModel.CurrentEmployee.Id);
+                UnitOfWork.EmployeeRepository.Add(EmployeeViewModel.CurrentEmployee);
+                EmployeeViewModel.AllEmployees.Add(EmployeeViewModel.CurrentEmployee);
+                EmployeeViewModel.State = 1;
 
-                if (item == null)
-                {
-                    UnitOfWork.EmployeeRepository.Add(EmployeeViewModel.CurrentEmployee);
-                    EmployeeViewModel.AllEmployees.Add(EmployeeViewModel.CurrentEmployee);
-                    EmployeeViewModel.State = 1;
-
-                    MessageBoxResult add = MessageBox.Show("Added");
-                    EmployeeViewModel.CurrentEmployee = new Employee();
-
-                }
-                else
-                {
-                    MessageBoxResult add = MessageBox.Show("Can not add this item, you can only update and delete");
-                    EmployeeViewModel.CurrentEmployee = new Employee();
-                }
+                MessageBoxResult add = MessageBox.Show("Added");
+                EmployeeViewModel.CurrentEmployee = new Employee();
             }
         }
     }

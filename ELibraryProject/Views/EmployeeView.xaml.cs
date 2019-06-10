@@ -23,9 +23,9 @@ namespace ELibraryProject.Views
             this.MainWindowViewModel = MainWindowViewModel;
 
             InitializeComponent();
-            employeeViewModel.LoadEmployees.Execute(null);
 
-            DataContext = new EmployeeViewModel();
+            employeeViewModel.LoadEmployees.Execute(null);
+            DataContext = employeeViewModel;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)

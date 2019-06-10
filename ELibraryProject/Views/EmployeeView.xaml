@@ -136,11 +136,14 @@
 
         <StackPanel Grid.Column="1">
             <WrapPanel Margin="0 30 0 0">
-                <Label Style="{StaticResource AllLabelStyle}" Content="Branch :" FontSize="30" Width="150" FontFamily="Chiller"/>
+                <Label Style="{StaticResource AllLabelStyle}" Content="Branch :" FontSize="30"
+                       Width="150" FontFamily="Chiller"/>
                 <ComboBox Width="190" Height="30" Margin="15,0,0,0" Background="Black" 
                           ItemsSource="{Binding Branches}"
-                           DisplayMemberPath="Name"
+                          DisplayMemberPath="Name"
                           SelectedItem="{Binding CurrentEmployee.Branch}"
+                          SelectedValue="{Binding CurrentBook.Branch.Id}" 
+                          SelectedValuePath="Id" 
                           />
                 
             </WrapPanel>
@@ -247,42 +250,48 @@
                     <GridViewColumn Header="No" Width="30">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}"></TextBlock>
+                                <TextBlock Padding="5,0" Text="{Binding Id}"
+                                           TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="First name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Name}"></TextBlock>
+                                <TextBlock Margin="30 0 0 0" Padding="5,0" Text="{Binding Name}"
+                                           TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Last name" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Surname}"></TextBlock>
+                                <TextBlock Margin="30 0 0 0 " Padding="5,0" Text="{Binding Surname}"
+                                           TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Phone number" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding PhoneNumber}"></TextBlock>
+                                <TextBlock Margin="30 0 0 0" Padding="5,0" Text="{Binding PhoneNumber}"
+                                           TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Branch" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Branch.Name}"></TextBlock>
+                                <TextBlock Margin="30 0 0 0" Padding="5,0" Text="{Binding Branch.Name}"
+                                           TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Salary" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Salary}"></TextBlock>
+                                <TextBlock Margin="30 0 0 0" Padding="5,0" Text="{Binding Salary}"
+                                           TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -290,6 +299,7 @@
             </ListView.View>
         </ListView>
 
-        <Button Width="350" Content="BACK TO MAIN MENU" Height="45" Grid.Row="3" Grid.ColumnSpan="2" Click="Button_Click"/>
+        <Button Width="350" Content="BACK TO MAIN MENU" Height="45" Grid.Row="3" 
+                Grid.ColumnSpan="2" Click="Button_Click"/>
     </Grid>
 </UserControl>

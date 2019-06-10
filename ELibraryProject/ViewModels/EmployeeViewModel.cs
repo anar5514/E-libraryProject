@@ -76,26 +76,10 @@ namespace ELibraryProject.ViewModels
             }
         }
 
-        public int LastAddedEmployeeID
-        {
-            get
-            {
-                if (allEmployees.Count != 0)
-                    return allEmployees.Last().Id;
-                else
-                {
-                    int result = 0;
-                    return result;
-                }
-            }
-        }
-
         public ObservableCollection<Branch> Branches { get; set; }
 
         public EmployeeViewModel()
         {
-            Branches = new ObservableCollection<Branch>();
-
             AllEmployees = new ObservableCollection<Employee>();
 
             CurrentEmployee = new Employee();

@@ -134,8 +134,7 @@
         </Grid>
         
         <StackPanel>
-            <WrapPanel Width="350" >
-                
+            <WrapPanel Width="350">
                 <Label Content="Book name :" Width="120"
                        Style="{StaticResource AllLabelStyle}" FontSize="27"/>
                 <TextBox TabIndex="0">
@@ -157,7 +156,6 @@
                             </Border>
                         </ControlTemplate>
                     </TextBox.Template>
-                    
                 </TextBox>
                 
             </WrapPanel>
@@ -178,7 +176,7 @@
                                              CaretBrush="White" BorderBrush="Black" BorderThickness="3"
                                              VerticalContentAlignment="Center" Margin="9,0,0,0"
                                              FontSize="15" FontFamily="Times New Roman" 
-                                                 Text="{Binding CurrentBook.AuthorName, Mode=TwoWay}"/>
+                                                 Text="{Binding CurrentBook.Author, Mode=TwoWay}"/>
                                     </StackPanel>
                                 </Grid>
                             </Border>
@@ -210,11 +208,9 @@
                         </ControlTemplate>
                     </TextBox.Template>
                 </TextBox>
-                
+
             </WrapPanel>
 
-            
-            
         </StackPanel>
 
         <StackPanel Grid.Column="1">
@@ -280,52 +276,59 @@
                   ItemsSource="{Binding AllBooks}" SelectedItem="{Binding SelectedBook}">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="No" Width="30">
+                    <GridViewColumn Header="No" Width="50">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}"></TextBlock>
+                                <TextBlock Width="30" Text="{Binding Id}"
+                                           TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Book name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Name}"></TextBlock>
+                                <TextBlock Width="125" Text="{Binding Name}" 
+                                           TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Author name" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding AuthorName}"></TextBlock>
+                                <TextBlock Width="125" Text="{Binding Author}" 
+                                           TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Buy price" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding BuyPrice}"></TextBlock>
+                                <TextBlock Width="125" Text="{Binding BuyPrice}" 
+                                           TextAlignment="Center"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Sale price" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding SalePrice}"></TextBlock>
+                                <TextBlock Width="125" Text="{Binding SalePrice}"
+                                           TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Count" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding PageCount}"></TextBlock>
+                                <TextBlock Width="125" Text="{Binding PageCount}"
+                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Branch" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Branch.Name}"></TextBlock>
+                                <TextBlock Width="110" Text="{Binding Branch.Name}"
+                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

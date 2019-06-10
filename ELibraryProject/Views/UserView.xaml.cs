@@ -37,7 +37,7 @@ namespace ELibraryProject.Views
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindowViewModel.Grid.Children.Clear();
-            MainWindowViewModel.Grid.Children.Add(new UserView(MainWindowViewModel));
+            MainWindowViewModel.Grid.Children.Add(new HomePage());
         }
     }
 }
