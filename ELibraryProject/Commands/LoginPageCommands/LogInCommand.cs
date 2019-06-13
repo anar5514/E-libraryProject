@@ -31,26 +31,31 @@ namespace ELibraryProject.Commands.LoginPageCommands
 
         public void Execute(object parameter)
         {
-            //MainWindowViewModel.UserOnSystem.Password = (parameter as PasswordBox)
-            //    .Password;
+            MainWindowViewModel.UserOnSystem.Password = (parameter as PasswordBox)
+                .Password;
 
-            //var isExist = UnitOfWork.UserOnSystemRepository.
-            //    IsExistUser(MainWindowViewModel.
-            //    UserWithHashedPassword(MainWindowViewModel.UserOnSystem.Password));
+            MainWindowViewModel.Helper = new Security.Helper();
 
-            MainWindowViewModel.Grid.Children.Clear();
-            MainWindowViewModel.Grid.Children.Add(new HomePage());
+            var hash = MainWindowViewModel.Helper.GetHashPassword(MainWindowViewModel.UserOnSystem.Password);
 
-            //if (isExist)
-            //{
-            //    MainWindowViewModel.Grid.Children.Clear();
-            //    MainWindowViewModel.Grid.Children.Add(new HomePage());
-            //}
-            //else
-            //{
-            //    MessageBoxResult mb = MessageBox.Show("Invalid username or password");
-            //    MainWindowViewModel.UserOnSystem = new Entities.User();
-            //}
+            MainWindowViewModel.UserOnSystem.Password = hash;
+
+            var isExist = UnitOfWork.UserOnSystemRepository.
+                IsExistUser(MainWindowViewModel.UserOnSystem);
+
+            if (isExist)
+            {
+                MainWindowViewModel.Grid.Children.Clear();
+                MainWindowViewModel.Grid.Children.Add(new HomePage());
+            }
+            else
+            {
+                MessageBoxResult mb = MessageBox.Show("Invalid username or password");
+                MainWindowViewModel.UserOnSystem = new Entities.User();
+            }
+
+            //MainWindowViewModel.Grid.Children.Clear();
+            //MainWindowViewModel.Grid.Children.Add(new HomePage());
 
         }
     }
