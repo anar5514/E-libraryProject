@@ -17,8 +17,8 @@ namespace ELibraryProject.DataAccess
             using (context = new ELibraryDbContext())
             {
                 if (context.Users.
-                    FirstOrDefault(x => x.UserName == user.UserName 
-                    && x.Password == user.Password) 
+                    FirstOrDefault(x => x.UserName == user.UserName
+                    && x.Password == user.Password)
                     != null)
                     return true;
                 return false;
