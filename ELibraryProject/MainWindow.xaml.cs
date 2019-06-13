@@ -25,8 +25,10 @@ namespace ELibraryProject
         public MainWindow()
         {
             InitializeComponent();
+
             MainWindowViewModel MainWindowViewModel = new MainWindowViewModel();
             MainWindowViewModel.Grid = mainGrid;
+            
             DataContext = MainWindowViewModel;
         }
 

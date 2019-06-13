@@ -250,7 +250,7 @@
                     <GridViewColumn Header="No" Width="30">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}"
+                                <TextBlock Width="30" Text="{Binding Id}"
                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -258,7 +258,7 @@
                     <GridViewColumn Header="First name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="30 0 0 0" Padding="5,0" Text="{Binding Name}"
+                                <TextBlock Width="125" Text="{Binding Name}"
                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -266,7 +266,7 @@
                     <GridViewColumn Header="Last name" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="30 0 0 0 " Padding="5,0" Text="{Binding Surname}"
+                                <TextBlock Width="125" Text="{Binding Surname}"
                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -274,7 +274,7 @@
                     <GridViewColumn Header="Phone number" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="30 0 0 0" Padding="5,0" Text="{Binding PhoneNumber}"
+                                <TextBlock Width="125" Text="{Binding PhoneNumber}"
                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -282,7 +282,7 @@
                     <GridViewColumn Header="Branch" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="30 0 0 0" Padding="5,0" Text="{Binding Branch.Name}"
+                                <TextBlock Width="125" Text="{Binding Branch.Name}"
                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -290,7 +290,7 @@
                     <GridViewColumn Header="Salary" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Margin="30 0 0 0" Padding="5,0" Text="{Binding Salary}"
+                                <TextBlock Width="125" Text="{Binding Salary}"
                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>

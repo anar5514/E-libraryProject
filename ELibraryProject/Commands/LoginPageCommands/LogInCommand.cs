@@ -15,15 +15,12 @@ namespace ELibraryProject.Commands.LoginPageCommands
     public class LogInCommand : BaseCommand, ICommand
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
-        public LoginPageViewModel LoginPageViewModel { get; set; }
 
         public event EventHandler CanExecuteChanged;
 
-        public LogInCommand(LoginPageViewModel LoginPageViewModel)
+        public LogInCommand(MainWindowViewModel MainWindowViewModel)
         {
-            this.LoginPageViewModel = LoginPageViewModel;
-            //MainWindowViewModel = new MainWindowViewModel();
-            //MainWindowViewModel.Grid = main
+            this.MainWindowViewModel = MainWindowViewModel;
             UnitOfWork = new SqlUnitOfWork();
         }
 
@@ -34,14 +31,12 @@ namespace ELibraryProject.Commands.LoginPageCommands
 
         public void Execute(object parameter)
         {
-            //----------------------------------------------------
+            //MainWindowViewModel.UserOnSystem.Password = (parameter as PasswordBox)
+            //    .Password;
 
-            LoginPageViewModel.UserOnSystem.Password = (parameter as PasswordBox)
-                .Password;
-
-            var isExist = UnitOfWork.UserOnSystemRepository.
-                IsExistUser(LoginPageViewModel.
-                UserWithHashedPassword(LoginPageViewModel.UserOnSystem.Password));
+            //var isExist = UnitOfWork.UserOnSystemRepository.
+            //    IsExistUser(MainWindowViewModel.
+            //    UserWithHashedPassword(MainWindowViewModel.UserOnSystem.Password));
 
             MainWindowViewModel.Grid.Children.Clear();
             MainWindowViewModel.Grid.Children.Add(new HomePage());
@@ -54,6 +49,7 @@ namespace ELibraryProject.Commands.LoginPageCommands
             //else
             //{
             //    MessageBoxResult mb = MessageBox.Show("Invalid username or password");
+            //    MainWindowViewModel.UserOnSystem = new Entities.User();
             //}
 
         }

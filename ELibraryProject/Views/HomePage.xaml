@@ -33,25 +33,33 @@
         <StackPanel Grid.RowSpan="2" Grid.Column="0" Background="#1d1f20">
 
             <Button Content="Books" Command="{Binding ShowBooksCommand}" 
-                    Style="{StaticResource AllButtonStyle}"/>
+                    Style="{StaticResource AllButtonStyle}" 
+                    IsEnabled="{Binding UserOnSystem.CanCreateBook}"/>
 
             <Button Content="Branches" Command="{Binding ShowBranchesCommand}" 
-                    Style="{StaticResource AllButtonStyle}"/>
+                    Style="{StaticResource AllButtonStyle}"
+                    IsEnabled="{Binding UserOnSystem.CanCreateBranch}"/>
 
             <Button Content="Customers" Command="{Binding ShowCustomersCommand}" 
-                    Style="{StaticResource AllButtonStyle}"/>
+                    Style="{StaticResource AllButtonStyle}"
+                    IsEnabled="{Binding UserOnSystem.CanCreateCustomer}"/>
 
             <Button Content="Employees" Command="{Binding ShowEmployeesCommand}" 
-                    Style="{StaticResource AllButtonStyle}"/>
+                    Style="{StaticResource AllButtonStyle}"
+                    IsEnabled="{Binding UserOnSystem.CanCreateEmployee}"
+                    />
 
             <Button Content="Users" Command="{Binding ShowUsersCommand}" 
-                    Style="{StaticResource AllButtonStyle}"/>
+                    Style="{StaticResource AllButtonStyle}"
+                    IsEnabled="{Binding UserOnSystem.CanCreateUser}"/>
 
             <Button Content="Rental reports section" Command="{Binding RentalReportSection}" 
-                    Style="{StaticResource AllButtonStyle}" FontSize="27"/>
+                    Style="{StaticResource AllButtonStyle}" FontSize="27"
+                    IsEnabled="{Binding UserOnSystem.CanRent}"/>
 
             <Button Content="Sales reports section" Command="{Binding SalesReportSection}" 
-                    Style="{StaticResource AllButtonStyle}"/>
+                    Style="{StaticResource AllButtonStyle}"
+                    IsEnabled="{Binding UserOnSystem.CanSale}"/>
 
             <Button Content="Log out" Command="{Binding LogOutCommand}" 
                     Style="{StaticResource AllButtonStyle}" FontWeight="Bold" FontSize="45"/>

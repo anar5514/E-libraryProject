@@ -219,35 +219,40 @@
                     <GridViewColumn Header="No" Width="30">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}"></TextBlock>
+                                <TextBlock Width="30" TextAlignment="Center"
+                                           Text="{Binding Id}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="First name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Name}"></TextBlock>
+                                <TextBlock Width="125" TextAlignment="Center"
+                                    Text="{Binding Name}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Last name" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Surname}"></TextBlock>
+                                <TextBlock Width="125" TextAlignment="Center"
+                                    Text="{Binding Surname}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Phone number" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding PhoneNumber}"></TextBlock>
+                                <TextBlock Width="125" TextAlignment="Center"
+                                    Text="{Binding PhoneNumber}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Joined date" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding JoinedDate}"></TextBlock>
+                                <TextBlock Width="125" TextAlignment="Center"
+                                    Text="{Binding JoinedDate}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

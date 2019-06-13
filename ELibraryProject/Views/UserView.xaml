@@ -119,10 +119,16 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <WrapPanel Margin="20,50,0,0" Height="40">
+                <WrapPanel Margin="20,35,0,0" Height="40">
                     <CheckBox Name="createCustomer" Width="150" Height="45" Background="Black" Content="Create customer" 
                               FontSize="26" FontFamily="Chiller" FontWeight="Bold" Foreground="LightGray"
                               IsChecked="{Binding CurrentUser.CanCreateCustomer, Mode=TwoWay}"/>
+                </WrapPanel>
+
+                <WrapPanel Margin="20,10,0,0" Height="40">
+                    <CheckBox Name="createEmployee" Width="150" Height="45" Background="Black" Content="Create employee" 
+                              FontSize="26" FontFamily="Chiller" FontWeight="Bold" Foreground="LightGray"
+                              IsChecked="{Binding CurrentUser.CanCreateEmployee, Mode=TwoWay}"/>
 
                 </WrapPanel>
 
@@ -217,56 +223,72 @@
                     <GridViewColumn Header="No" Width="30">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}"></TextBlock>
+                                <TextBlock Width="30" TextAlignment="Left"
+                                    Text="{Binding Id}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="Username" Width="100">
+                    <GridViewColumn Header="Username" Width="80">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding UserName}" Margin="20 0 0 0"/>
+                                <TextBlock Width="80" TextAlignment="Center"
+                                    Text="{Binding UserName}"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="CanCreateBook" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanCreateBook}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Width="100" TextAlignment="Center"
+                                    Text="{Binding CanCreateBook}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="CanCreateBranch" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanCreateBranch}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Width="100" TextAlignment="Center"
+                                    Text="{Binding CanCreateBranch}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="CanCreateUser" Width="100" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanCreateUser}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Width="100" TextAlignment="Center"
+                                    Text="{Binding CanCreateUser}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="CanCreateCustomer" Width="100" >
+                    <GridViewColumn Header="CanCreateCustomer" Width="110" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanCreateCustomer}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Width="110" TextAlignment="Center"
+                                    Text="{Binding CanCreateCustomer}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="CanRent" Width="100" >
+                    <GridViewColumn Header="CanRent" Width="70" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanRent}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Width="70" TextAlignment="Center"
+                                    Text="{Binding CanRent}" ></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
-                    <GridViewColumn Header="CanSale" Width="100" >
+                    <GridViewColumn Header="CanSale" Width="70" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding CanSale}" Margin="20 0 0 0"></TextBlock>
+                                <TextBlock Width="70" TextAlignment="Center" 
+                                    Text="{Binding CanSale}" ></TextBlock>
+                            </DataTemplate>
+                        </GridViewColumn.CellTemplate>
+                    </GridViewColumn>
+                    <GridViewColumn Header="CanCreateEmployee" Width="120">
+                        <GridViewColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Width="120" TextAlignment="Center"
+                                           Text="{Binding CanCreateEmployee}"></TextBlock>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>

@@ -12,12 +12,13 @@ namespace ELibraryProject.Entities
         public int Id { get; set; }
         public string UserName { get; set; }
         public string Password { get; set; }
-        public bool CanCreateBook { get; set; }
-        public bool CanCreateBranch { get; set; }
-        public bool CanCreateCustomer { get; set; }
-        public bool CanCreateUser{ get; set; }
-        public bool CanRent { get; set; }
-        public bool CanSale { get; set; }
+        public bool CanCreateBook { get; set; } = true;
+        public bool CanCreateBranch { get; set; } = true;
+        public bool CanCreateCustomer { get; set; } = true;
+        public bool CanCreateEmployee { get; set; } = true;
+        public bool CanCreateUser{ get; set; } = true;
+        public bool CanRent { get; set; } = true;
+        public bool CanSale { get; set; } = true;
 
         public User Clone()
         {
@@ -29,6 +30,7 @@ namespace ELibraryProject.Entities
             user.CanCreateCustomer = CanCreateCustomer;
             user.CanCreateUser = CanCreateUser;
             user.CanRent = CanRent;
+            user.CanCreateEmployee = CanCreateEmployee;
             user.CanSale = CanSale;
             return user;
         }

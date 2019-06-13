@@ -1,19 +1,13 @@
-﻿using ELibraryProject.Commands.LoginPageCommands;
-using ELibraryProject.Domain.Entities;
-using ELibraryProject.Entities;
+﻿using ELibraryProject.Entities;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
 
 namespace ELibraryProject.ViewModels
 {
     public class LoginPageViewModel:BaseViewModel
     {
-        public LogInCommand LogInCommand => new LogInCommand(this);
+        //public LogInCommand LogInCommand => new LogInCommand(this);
 
         public List<string> Languages { get; set; }
 

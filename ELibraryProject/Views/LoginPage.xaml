@@ -70,8 +70,27 @@
                 BorderThickness="3">
             <StackPanel Height="400" Width="250" Background="#1d1f20" Opacity="0.9">
 
-                <TextBox Style="{StaticResource txtboxusrnmStyle}" Margin="20,180,0,0" TabIndex="0"
-                         Text="{Binding UserOnSystem.UserName}"/>
+                <TextBox Margin="20,180,0,0" TabIndex="0">
+                    <TextBox.Template>
+                        <ControlTemplate TargetType="{x:Type TextBox}">
+                            <Border BorderBrush="{x:Null}" BorderThickness="1" Height="30" Width="200" 
+                                Background="#373b3d" Margin="-30,-50,0,0" CornerRadius="10">
+                                <Grid>
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="/Images/usernameicon.png" Width="20" Height="20"/>
+                                        <TextBox x:Name="inputText" Background="Transparent" 
+                                             Foreground="White" FontSize="15" Width="170" 
+                                            BorderBrush="#373b3d" BorderThickness="3" 
+                                             VerticalContentAlignment="Center"
+                                             CaretBrush="White"
+                                             Text="{Binding UserOnSystem.UserName}"/>
+                                    </StackPanel>
+                                </Grid>
+                            </Border>
+
+                        </ControlTemplate>
+                    </TextBox.Template>
+                </TextBox>
                 <PasswordBox Name="pwdBox" Style="{StaticResource txtboxpwdStyle}" Margin="20,50,0,0" 
                              TabIndex="1"
                          />
@@ -79,7 +98,8 @@
                 <Button Name="btnLogin" Margin="-5,10,0,0" Width="150" Height="50" 
                         Foreground="Black" 
                         FontSize="15"
-                    Content="Log in" Background="White" Command="{Binding LogInCommand}" 
+                        Content="Log in" Background="White" 
+                        Command="{Binding LogInCommand}" 
                         CommandParameter="{Binding ElementName=pwdBox}"/>
 
             </StackPanel>

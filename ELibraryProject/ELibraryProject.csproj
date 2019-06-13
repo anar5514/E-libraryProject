@@ -115,7 +115,6 @@
     <Compile Include="Domain\Abstractions\IUserOnSystemRepository.cs" />
     <Compile Include="Domain\Abstractions\IUserRepository.cs" />
     <Compile Include="DataAccess\ELibraryDbContext.cs" />
-    <Compile Include="Domain\Entities\UserOnSystem.cs" />
     <Compile Include="Language\Dictionary.en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

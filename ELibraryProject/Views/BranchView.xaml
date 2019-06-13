@@ -137,15 +137,15 @@
                     <GridViewColumn Header="No" Width="30">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Id}"
-                                           TextAlignment="Center" />
+                                <TextBlock Text="{Binding Id}"
+                                         Width="30"  TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
                     <GridViewColumn Header="Branch name" Width="125">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Name}"
+                                <TextBlock Width="125" Text="{Binding Name}"
                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
@@ -153,7 +153,7 @@
                     <GridViewColumn Header="Branch address" Width="125" >
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <TextBlock Padding="5,0" Text="{Binding Address}"
+                                <TextBlock Width="125" Text="{Binding Address}"
                                            TextAlignment="Center" />
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
