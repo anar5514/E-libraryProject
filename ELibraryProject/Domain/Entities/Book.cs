@@ -16,7 +16,7 @@ namespace ELibraryProject.Entities
         public double SalePrice{ get; set; }
         public int PageCount { get; set; }
 
-     
+  
         public int BranchId { get; set; }
         [ForeignKey("BranchId")]
         public virtual Branch Branch { get; set; }
@@ -31,6 +31,7 @@ namespace ELibraryProject.Entities
             newbook.BuyPrice = this.BuyPrice;
             newbook.SalePrice = this.SalePrice;
             newbook.BranchId = BranchId;
+            newbook.Id = Id;
             return newbook;
         }
     }

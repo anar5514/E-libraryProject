@@ -1,9 +1,5 @@
 ﻿using ELibraryProject.Domain.Abstractions;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace ELibraryProject.DataAccess
 {
@@ -22,6 +18,8 @@ namespace ELibraryProject.DataAccess
         public IPermissionRepository PermissionRepository => new PermissionRepository();
 
         public IUserRepository UserRepository => new UserRepository();
+
+        public IUserOnSystemRepository UserOnSystemRepository => new UserOnSystemRepository();
 
         public void SaveChanges()
         {

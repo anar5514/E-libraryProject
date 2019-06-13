@@ -4,6 +4,7 @@ using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -32,7 +33,9 @@ namespace ELibraryProject.Commands.UserCommands
         public void Execute(object parameter)
         {
             var user = UserViewModel.CurrentUser;
-            
+
+            //UserViewModel.CurrentUser.Password = (parameter as PasswordBox).Password;
+
             user.Password = (parameter as PasswordBox).Password;
 
             if (user.UserName != null && user.Password != null)
@@ -57,12 +60,14 @@ namespace ELibraryProject.Commands.UserCommands
                 //}
                 #endregion
 
+                UserViewModel.HashPassword(user.Password);
                 UnitOfWork.UserRepository.Add(UserViewModel.CurrentUser);
                 UserViewModel.AllUsers.Add(UserViewModel.CurrentUser);
                 UserViewModel.State = 1;
 
                 MessageBoxResult add = MessageBox.Show("Added");
                 UserViewModel.CurrentUser = new User();
+                
             }
         }
     }

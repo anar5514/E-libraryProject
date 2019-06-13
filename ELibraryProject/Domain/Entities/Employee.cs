@@ -27,8 +27,8 @@ namespace ELibraryProject.Entities
             employee.PhoneNumber = PhoneNumber;
             employee.Branch = Branch;
             employee.Salary = Salary;
-            employee.Id = Id;
             employee.BranchId = BranchId;
+            employee.Id = Id;
             return employee;
         }
     }

@@ -56,13 +56,7 @@ namespace ELibraryProject.DataAccess
             return user;
         }
 
-        public bool IsExistUser(User user)
-        {
-            context = new ELibraryDbContext();
-            if (context.Users.FirstOrDefault(x => x.UserName == user.UserName) != null)
-                return true;
-            return false;
-        }
+        
 
         public void Update(User ent)
         {

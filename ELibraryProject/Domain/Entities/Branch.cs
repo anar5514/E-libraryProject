@@ -21,6 +21,7 @@ namespace ELibraryProject.Entities
             return branch;
         }
 
+        public virtual IEnumerable<Employee> Employees { get; set; }
         public virtual IEnumerable<Book> Books { get; set; }
     }
 }

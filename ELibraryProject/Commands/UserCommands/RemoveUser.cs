@@ -14,13 +14,13 @@ namespace ELibraryProject.Commands.UserCommands
     {
         public UserViewModel UserViewModel { get; set; }
 
+        public event EventHandler CanExecuteChanged;
+
         public RemoveUser(UserViewModel UserViewModel)
         {
             this.UserViewModel = UserViewModel;
             UnitOfWork = new SqlUnitOfWork();
         }
-
-        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {

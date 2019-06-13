@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:ELibraryProject.Views"
              xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
+             xmlns:ff="password"
              d:DesignHeight="450" d:DesignWidth="800">
 
     <UserControl.Resources>
@@ -76,12 +77,12 @@
                                 Background="Black" CornerRadius="10" Opacity="0.7">
                                 <Grid>
                                     <StackPanel Orientation="Horizontal">
-                                        <PasswordBox Width="180" Height="25"
+                                        <PasswordBox  Width="180" Height="25"
                                              Foreground="White" Background="Transparent"
                                              CaretBrush="White" BorderBrush="Black" Opacity="0.7"
                                              VerticalContentAlignment="Center" Margin="9,0,0,0"
                                              FontSize="13" FontFamily="Times New Roman"
-                                                     />
+                                                    />
                                     </StackPanel>
                                 </Grid>
                             </Border>
@@ -137,11 +138,76 @@
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Button Width="100" Content="Add" Height="40"  Margin="-500,0,0,0"
-                    Command="{Binding AddUser}" CommandParameter="{Binding ElementName=pwdBox}"/>
+                    Command="{Binding AddUser}" 
+                    CommandParameter="{Binding ElementName=pwdBox}" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{ Binding State}" Value="4">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="2">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="1">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="3">
+                                <Setter Property="IsEnabled" Value="True"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Width="100" Content="Delete" Height="40" Margin="0,0,0,0"
-                    />
+                     Command="{Binding RemoveUser}" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State}" Value="4">
+                                <Setter Property="IsEnabled"  Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="2">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="1">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="3">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
             <Button Width="100" Content="Update" Height="40" Margin="500,0,0,0"
-                     />
+                    Command="{Binding UpdateUser}" >
+                <Button.Style>
+                    <Style TargetType="{x:Type Button}">
+                        <Setter Property="IsEnabled" Value="False"/>
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding State}" Value="4">
+                                <Setter Property="IsEnabled"  Value="True"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="3">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+
+                            <DataTrigger Binding="{Binding State}" Value="1">
+                                <Setter Property="IsEnabled" Value="False"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+            </Button>
         </Grid>
 
         <ListView Grid.ColumnSpan="2" Grid.Row="2" Background="White" Opacity="0.7"

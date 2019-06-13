@@ -103,6 +103,7 @@
     <Compile Include="DataAccess\EmployeeRepository.cs" />
     <Compile Include="DataAccess\PermissionRepository.cs" />
     <Compile Include="DataAccess\SqlUnitOfWork.cs" />
+    <Compile Include="DataAccess\UserOnSystemRepository.cs" />
     <Compile Include="DataAccess\UserRepository.cs" />
     <Compile Include="Domain\Abstractions\IBookRepository.cs" />
     <Compile Include="Domain\Abstractions\IBranchRepository.cs" />
@@ -111,8 +112,10 @@
     <Compile Include="Domain\Abstractions\IPermissionRepository.cs" />
     <Compile Include="Domain\Abstractions\IRepository.cs" />
     <Compile Include="Domain\Abstractions\IUnitOfWork.cs" />
+    <Compile Include="Domain\Abstractions\IUserOnSystemRepository.cs" />
     <Compile Include="Domain\Abstractions\IUserRepository.cs" />
     <Compile Include="DataAccess\ELibraryDbContext.cs" />
+    <Compile Include="Domain\Entities\UserOnSystem.cs" />
     <Compile Include="Language\Dictionary.en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

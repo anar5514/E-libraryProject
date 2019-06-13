@@ -1,4 +1,5 @@
-﻿using ELibraryProject.Entities;
+﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,12 +14,13 @@ namespace ELibraryProject.Commands.EmployeeCommands
     {
         public EmployeeViewModel EmployeeViewModel { get; set; }
 
+        public event EventHandler CanExecuteChanged;
+
         public UpdateEmployee(EmployeeViewModel EmployeeViewModel)
         {
             this.EmployeeViewModel = EmployeeViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
-
-        public event EventHandler CanExecuteChanged;
 
         public bool CanExecute(object parameter)
         {

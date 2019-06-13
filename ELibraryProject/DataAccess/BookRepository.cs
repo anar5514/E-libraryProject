@@ -66,8 +66,7 @@ namespace ELibraryProject.DataAccess
         {
             using (context = new ELibraryDbContext())
             {
-                context.Entry(ent).State = EntityState.Unchanged;
-                context.Books.Add(ent);
+                context.Entry(ent).State = EntityState.Modified;
                 context.SaveChanges();
             }
         }

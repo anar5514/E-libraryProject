@@ -2,6 +2,7 @@
 using ELibraryProject.Entities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace ELibraryProject.DataAccess
         {
             using (context = new ELibraryDbContext())
             {
+                context.Entry(ent.Branch).State = EntityState.Unchanged;
                 context.Employees.Add(ent);
                 context.SaveChanges();
             }

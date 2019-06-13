@@ -1,4 +1,5 @@
-﻿using ELibraryProject.Entities;
+﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -16,6 +17,7 @@ namespace ELibraryProject.Commands.EmployeeCommands
         public RemoveEmployee(EmployeeViewModel EmployeeViewModel)
         {
             this.EmployeeViewModel = EmployeeViewModel;
+            UnitOfWork = new SqlUnitOfWork();
         }
 
         public event EventHandler CanExecuteChanged;

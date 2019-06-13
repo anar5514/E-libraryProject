@@ -16,7 +16,6 @@ namespace ELibraryProject.Views
     public partial class EmployeeView : UserControl
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
-        private EmployeeViewModel employeeViewModel = new EmployeeViewModel();
 
         public EmployeeView(MainWindowViewModel MainWindowViewModel)
         {
@@ -24,7 +23,9 @@ namespace ELibraryProject.Views
 
             InitializeComponent();
 
+            EmployeeViewModel employeeViewModel = new EmployeeViewModel();
             employeeViewModel.LoadEmployees.Execute(null);
+
             DataContext = employeeViewModel;
         }
 

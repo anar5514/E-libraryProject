@@ -17,7 +17,7 @@ namespace ELibraryProject.ViewModels
     {
         public Grid Grid { get; set; }
 
-        public LogInCommand LogInCommand => new LogInCommand(this);
+        //public LogInCommand LogInCommand => new LogInCommand(this);
 
         public ShowBooksCommand ShowBooksCommand => new ShowBooksCommand(this);
 

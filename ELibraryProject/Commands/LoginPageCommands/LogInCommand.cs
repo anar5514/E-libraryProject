@@ -15,15 +15,17 @@ namespace ELibraryProject.Commands.LoginPageCommands
     public class LogInCommand : BaseCommand, ICommand
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
-        public UserViewModel UserViewModel { get; set; }
-
-        public LogInCommand(MainWindowViewModel MainWindowViewModel)
-        {
-            this.MainWindowViewModel = MainWindowViewModel;
-            UserViewModel = new UserViewModel();
-        }
+        public LoginPageViewModel LoginPageViewModel { get; set; }
 
         public event EventHandler CanExecuteChanged;
+
+        public LogInCommand(LoginPageViewModel LoginPageViewModel)
+        {
+            this.LoginPageViewModel = LoginPageViewModel;
+            //MainWindowViewModel = new MainWindowViewModel();
+            //MainWindowViewModel.Grid = main
+            UnitOfWork = new SqlUnitOfWork();
+        }
 
         public bool CanExecute(object parameter)
         {
@@ -32,24 +34,28 @@ namespace ELibraryProject.Commands.LoginPageCommands
 
         public void Execute(object parameter)
         {
-            //UnitOfWork = new SqlUnitOfWork();
-            //UserViewModel.UserOnSystem = new Entities.User();
-            //UserViewModel.UserOnSystem.Password = (parameter as PasswordBox).Password;
-
-            //if (UnitOfWork.UserRepository.IsExistUser(UserViewModel.UserOnSystem))
-            //{
-            //    MainWindowViewModel.Grid.Children.Clear();
-            //    MainWindowViewModel.Grid.Children.Add(new HomePage());            
-            //}
-            //else
-            //{
-            //    MessageBoxResult mb = MessageBox.Show("Invalid username or password ...");
-            //}
-
             //----------------------------------------------------
+
+            LoginPageViewModel.UserOnSystem.Password = (parameter as PasswordBox)
+                .Password;
+
+            var isExist = UnitOfWork.UserOnSystemRepository.
+                IsExistUser(LoginPageViewModel.
+                UserWithHashedPassword(LoginPageViewModel.UserOnSystem.Password));
 
             MainWindowViewModel.Grid.Children.Clear();
             MainWindowViewModel.Grid.Children.Add(new HomePage());
+
+            //if (isExist)
+            //{
+            //    MainWindowViewModel.Grid.Children.Clear();
+            //    MainWindowViewModel.Grid.Children.Add(new HomePage());
+            //}
+            //else
+            //{
+            //    MessageBoxResult mb = MessageBox.Show("Invalid username or password");
+            //}
+
         }
     }
 }

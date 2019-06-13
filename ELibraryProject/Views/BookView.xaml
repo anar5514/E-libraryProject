@@ -64,7 +64,8 @@
         </Grid.Background>
 
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
-            <Button Width="100" Content="Add" Height="40"  Margin="-500,0,0,0" Command="{Binding AddBook}">
+            <Button Width="100" Content="Add" Height="40"  
+                    Margin="-500,0,0,0" Command="{Binding AddBook}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>
@@ -87,7 +88,8 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Width="100" Content="Delete" Height="40" Margin="0,0,0,0" Command="{Binding RemoveBook}">
+            <Button Width="100" Content="Delete" Height="40" 
+                    Margin="0,0,0,0" Command="{Binding RemoveBook}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="IsEnabled" Value="False"/>

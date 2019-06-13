@@ -54,9 +54,13 @@ namespace ELibraryProject.ViewModels
             }
             set
             {
-                State = 4;
                 selectedEmployee = value;
-                CurrentEmployee = SelectedEmployee.Clone();
+
+                if (value != null)
+                {
+                    State = 4;
+                    CurrentEmployee = SelectedEmployee.Clone();
+                }
                 OnPropertyChanged(new System.ComponentModel.PropertyChangedEventArgs(nameof(SelectedEmployee)));
 
             }

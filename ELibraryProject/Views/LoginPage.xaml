@@ -75,43 +75,7 @@
                 <PasswordBox Name="pwdBox" Style="{StaticResource txtboxpwdStyle}" Margin="20,50,0,0" 
                              TabIndex="1"
                          />
-                <!--<Button Margin="-5,10,0,0" Width="150" Height="50" 
-                            Foreground="White" 
-                            FontSize="15"
-                        Content="Log in" Background="White">
-                    <Button.Style>
-                        <Style TargetType="{x:Type Button}">
-                            <Setter Property="Background" Value="#373e4a"/>
-                            <Setter Property="Template">
-                                <Setter.Value>
-                                    <ControlTemplate TargetType="{x:Type Button}">
-                                        <Grid>
-                                            <Border BorderThickness="2" CornerRadius="10.0" 
-                                                    Width="150" Height="50">
-                                                <Button Width="100" Background="White" Height="50"/>
-                                            </Border>
-                                        </Grid>
-
-                                        <ControlTemplate.Triggers>
-                                            <Trigger Property="IsMouseOver" Value="True">
-                                                <Setter Property="Background" Value="blue"/>
-
-                                            </Trigger>
-                                            <Trigger Property="IsPressed" Value="true">
-                                                <Setter Property="Background" Value="Transparent"/>
-                                            </Trigger>
-
-                                        </ControlTemplate.Triggers>
-
-                                    </ControlTemplate>
-
-                                </Setter.Value>
-                            </Setter>
-
-                        </Style>
-                    </Button.Style>
-                </Button>-->
-
+                
                 <Button Name="btnLogin" Margin="-5,10,0,0" Width="150" Height="50" 
                         Foreground="Black" 
                         FontSize="15"

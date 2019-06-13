@@ -27,6 +27,9 @@ namespace ELibraryProject
         public LoginPage()
         {
             InitializeComponent();
+
+            
+            DataContext = new LoginPageViewModel();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
