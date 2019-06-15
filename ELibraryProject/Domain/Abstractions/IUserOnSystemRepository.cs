@@ -9,6 +9,6 @@ namespace ELibraryProject.Domain.Abstractions
 {
     public interface IUserOnSystemRepository
     {
-        bool IsExistUser(User user);
+        User GetUser(User user);
     }
 }

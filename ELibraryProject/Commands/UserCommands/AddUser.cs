@@ -1,5 +1,6 @@
 ﻿using ELibraryProject.DataAccess;
 using ELibraryProject.Entities;
+using ELibraryProject.Security;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -34,33 +35,12 @@ namespace ELibraryProject.Commands.UserCommands
         {
             var user = UserViewModel.CurrentUser;
 
-            //UserViewModel.CurrentUser.Password = (parameter as PasswordBox).Password;
 
-            user.Password = (parameter as PasswordBox).Password;
-
-            if (user.UserName != null && user.Password != null)
+            if (user.UserName != null && (parameter as PasswordBox).Password != null)
             {
-                #region Old Code
-                //var item = BookViewModel.AllBooks.FirstOrDefault(x => x.Id == BookViewModel.CurrentBook.Id);
+                Helper helper = new Helper();
+                user.Password = helper.GetHashPassword((parameter as PasswordBox).Password);
 
-                //if (item == null)
-                //{
-                //    BookViewModel.CurrentBook.BranchId = BookViewModel.CurrentBook.Branch.Id;
-                //    UnitOfWork.BookRepository.Add(BookViewModel.CurrentBook);
-                //    BookViewModel.AllBooks.Add(BookViewModel.CurrentBook);
-                //    BookViewModel.State = 1;
-
-                //    MessageBoxResult add = MessageBox.Show("Added");
-                //    BookViewModel.CurrentBook = new Book();
-                //}
-                //else
-                //{
-                //    MessageBoxResult add = MessageBox.Show("Can not add this item, you can only update and delete");
-                //    BookViewModel.CurrentBook = new Book();
-                //}
-                #endregion
-
-                UserViewModel.HashPassword(user.Password);
                 UnitOfWork.UserRepository.Add(UserViewModel.CurrentUser);
                 UserViewModel.AllUsers.Add(UserViewModel.CurrentUser);
                 UserViewModel.State = 1;

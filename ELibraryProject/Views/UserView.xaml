@@ -77,12 +77,11 @@
                                 Background="Black" CornerRadius="10" Opacity="0.7">
                                 <Grid>
                                     <StackPanel Orientation="Horizontal">
-                                        <PasswordBox  Width="180" Height="25"
+                                        <PasswordBox Width="180" Height="25"
                                              Foreground="White" Background="Transparent"
                                              CaretBrush="White" BorderBrush="Black" Opacity="0.7"
                                              VerticalContentAlignment="Center" Margin="9,0,0,0"
-                                             FontSize="13" FontFamily="Times New Roman"
-                                                    />
+                                             FontSize="13" FontFamily="Times New Roman"/>
                                     </StackPanel>
                                 </Grid>
                             </Border>
@@ -145,7 +144,7 @@
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Button Width="100" Content="Add" Height="40"  Margin="-500,0,0,0"
                     Command="{Binding AddUser}" 
-                    CommandParameter="{Binding ElementName=pwdBox}" >
+                    CommandParameter="{Binding ElementName=Tem, Path=Template.Password}" >
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>

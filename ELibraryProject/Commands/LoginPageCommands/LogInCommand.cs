@@ -31,31 +31,30 @@ namespace ELibraryProject.Commands.LoginPageCommands
 
         public void Execute(object parameter)
         {
-            MainWindowViewModel.UserOnSystem.Password = (parameter as PasswordBox)
-                .Password;
-
             MainWindowViewModel.Helper = new Security.Helper();
+            var helper = MainWindowViewModel.Helper;
 
-            var hash = MainWindowViewModel.Helper.GetHashPassword(MainWindowViewModel.UserOnSystem.Password);
+            var cleanPassword = (parameter as PasswordBox).Password;
+            var hashPassword = helper.GetHashPassword(cleanPassword);
+            MainWindowViewModel.UserOnSystem.Password = hashPassword;
 
-            MainWindowViewModel.UserOnSystem.Password = hash;
+            var user = UnitOfWork.UserOnSystemRepository.
+                GetUser(MainWindowViewModel.UserOnSystem);
 
-            var isExist = UnitOfWork.UserOnSystemRepository.
-                IsExistUser(MainWindowViewModel.UserOnSystem);
-
-            if (isExist)
+            if (user != null)
             {
+                MainWindowViewModel.UserOnSystem = user;
                 MainWindowViewModel.Grid.Children.Clear();
                 MainWindowViewModel.Grid.Children.Add(new HomePage());
             }
             else
             {
+                MainWindowViewModel.Grid.Children.Clear();
+                MainWindowViewModel.Grid.Children.Add(new HomePage());
                 MessageBoxResult mb = MessageBox.Show("Invalid username or password");
                 MainWindowViewModel.UserOnSystem = new Entities.User();
             }
 
-            //MainWindowViewModel.Grid.Children.Clear();
-            //MainWindowViewModel.Grid.Children.Add(new HomePage());
 
         }
     }

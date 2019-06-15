@@ -275,7 +275,7 @@
         </StackPanel>
 
         <ListView Grid.ColumnSpan="2" Grid.Row="2" Background="White" Opacity="0.7"
-                  ItemsSource="{Binding AllBooks}" SelectedItem="{Binding SelectedBook}">
+                  ItemsSource="{Binding AllBooks, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedBook}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="50">

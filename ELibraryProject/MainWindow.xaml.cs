@@ -1,4 +1,5 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using ELibraryProject.Views;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,7 @@ namespace ELibraryProject
 
             MainWindowViewModel MainWindowViewModel = new MainWindowViewModel();
             MainWindowViewModel.Grid = mainGrid;
-            
+
             DataContext = MainWindowViewModel;
         }
 

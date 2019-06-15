@@ -12,16 +12,12 @@ namespace ELibraryProject.DataAccess
     {
         ELibraryDbContext context;
 
-        public bool IsExistUser(User user)
+        public User GetUser(User user)
         {
             using (context = new ELibraryDbContext())
             {
-                if (context.Users.
-                    FirstOrDefault(x => x.UserName == user.UserName 
-                    && x.Password == user.Password) 
-                    != null)
-                    return true;
-                return false;
+                return context.Users.FirstOrDefault
+                    (x => x.UserName == user.UserName && x.Password == user.Password);
             }
         }
     }

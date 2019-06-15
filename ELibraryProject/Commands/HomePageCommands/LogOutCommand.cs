@@ -1,4 +1,5 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +29,7 @@ namespace ELibraryProject.Commands.HomePageCommands
         {
             MainWindowViewModel.Grid.Children.Clear();
             MainWindowViewModel.Grid.Children.Add(new LoginPage());
+            MainWindowViewModel.UserOnSystem = new User();
         }
     }
 }

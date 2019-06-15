@@ -9,30 +9,6 @@
 
     <UserControl.Resources>
 
-        <Style x:Key="txtboxusrnmStyle" TargetType="{x:Type TextBox}">
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="{x:Type TextBox}">
-
-                        <Border BorderBrush="{x:Null}" BorderThickness="1" Height="30" Width="200" 
-                                Background="#373b3d" Margin="-30,-50,0,0" CornerRadius="10">
-                            <Grid>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Images/usernameicon.png" Width="20" Height="20"/>
-                                    <TextBox x:Name="inputText" Background="Transparent" 
-                                             Foreground="White" FontSize="15" Width="170" 
-                                            BorderBrush="#373b3d" BorderThickness="3" 
-                                             VerticalContentAlignment="Center"
-                                             CaretBrush="White"/>
-                                </StackPanel>
-                            </Grid>
-                        </Border>
-
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
-        </Style>
-
         <Style x:Key="txtboxpwdStyle" TargetType="{x:Type PasswordBox}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -43,11 +19,14 @@
                                 Margin="-30,-50,0,0" CornerRadius="10">
                             <Grid>
                                 <StackPanel Orientation="Horizontal">
-                                    <Image Source="/Images/parolicon.png" Width="20" Height="20"/>
+                                    <Image Source="/Images/parolicon.png" Width="20" 
+                                           Height="20"/>
                                     <PasswordBox x:Name="inputText" 
                                                  Background="Transparent" Foreground="White" 
-                                                 FontSize="13" Width="170" BorderBrush="#373b3d" BorderThickness="3" 
-                                                 VerticalContentAlignment="Center" CaretBrush="White"/>
+                                                 FontSize="13" Width="170" BorderBrush="#373b3d" 
+                                                 BorderThickness="3" 
+                                                 VerticalContentAlignment="Center" CaretBrush="White"
+                                                 TabIndex="1"/>
                                 </StackPanel>
                             </Grid>
                         </Border>
@@ -91,11 +70,13 @@
                         </ControlTemplate>
                     </TextBox.Template>
                 </TextBox>
-                <PasswordBox Name="pwdBox" Style="{StaticResource txtboxpwdStyle}" Margin="20,50,0,0" 
-                             TabIndex="1"
-                         />
-                
-                <Button Name="btnLogin" Margin="-5,10,0,0" Width="150" Height="50" 
+                <PasswordBox Name="pwdBox" Style="{StaticResource txtboxpwdStyle}" 
+                             Margin="20,50,0,0" 
+                             TabIndex="1"/>
+
+                <Button Name="btnLogin" Margin="-5,10,0,0" Width="150" 
+                        TabIndex="2"
+                        Height="50" 
                         Foreground="Black" 
                         FontSize="15"
                         Content="Log in" Background="White" 
