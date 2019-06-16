@@ -21,6 +21,10 @@ namespace ELibraryProject.DataAccess
 
         public IUserOnSystemRepository UserOnSystemRepository => new UserOnSystemRepository();
 
+        public ISaleReportRepository SaleReportRepository => new SaleReportRepository(context);
+
+        public IRentReportRepository RentReportRepository => new RentReportRepository();
+
         public void SaveChanges()
         {
             context.SaveChanges();

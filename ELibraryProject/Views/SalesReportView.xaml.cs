@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ELibraryProject.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +21,23 @@ namespace ELibraryProject.Views
     /// </summary>
     public partial class SalesReportView : UserControl
     {
-        public SalesReportView()
+        public MainWindowViewModel MainWindowViewModel { get; set; }
+
+        public SalesReportView(MainWindowViewModel MainWindowViewModel)
         {
+            this.MainWindowViewModel = MainWindowViewModel;
+
             InitializeComponent();
+
+            SaleViewModel saleViewModel = new SaleViewModel(MainWindowViewModel);
+            saleViewModel.LoadSales.Execute(MainWindowViewModel.SelectedBook);
+            DataContext = saleViewModel;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindowViewModel.Grid.Children.Clear();
+            MainWindowViewModel.Grid.Children.Add(new BookView(MainWindowViewModel));
         }
     }
 }

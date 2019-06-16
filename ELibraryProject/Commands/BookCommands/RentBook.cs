@@ -5,18 +5,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows;
 using System.Windows.Input;
 
-namespace ELibraryProject.Commands.HomePageCommands
+namespace ELibraryProject.Commands.BookCommands
 {
-    public class ShowBooksCommand : BaseCommand, ICommand
+    public class RentBook : BaseCommand, ICommand
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
 
         public event EventHandler CanExecuteChanged;
 
-        public ShowBooksCommand(MainWindowViewModel MainWindowViewModel)
+        public RentBook(MainWindowViewModel MainWindowViewModel)
         {
             this.MainWindowViewModel = MainWindowViewModel;
         }
@@ -29,7 +28,7 @@ namespace ELibraryProject.Commands.HomePageCommands
         public void Execute(object parameter)
         {
             MainWindowViewModel.Grid.Children.Clear();
-            MainWindowViewModel.Grid.Children.Add(new BookView(MainWindowViewModel));
+            MainWindowViewModel.Grid.Children.Add(new RentalReportView());
         }
     }
 }

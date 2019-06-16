@@ -1,5 +1,6 @@
 namespace ELibraryProject
 {
+    using ELibraryProject.Domain.Entities;
     using ELibraryProject.Entities;
     using ELibraryProject.Migrations;
     using System;
@@ -28,6 +29,8 @@ namespace ELibraryProject
         public virtual DbSet<Customer> Customers { get; set; }
         public virtual DbSet<Employee> Employees { get; set; }
         public virtual DbSet<User> Users { get; set; }
+        public virtual DbSet<RentReport> RentReports { get; set; }
+        public virtual DbSet<SaleReport> SaleReports { get; set; }
 
 
         public virtual DbSet<Permission> Permissions { get; set; }

@@ -275,7 +275,8 @@
         </StackPanel>
 
         <ListView Grid.ColumnSpan="2" Grid.Row="2" Background="White" Opacity="0.7"
-                  ItemsSource="{Binding AllBooks, UpdateSourceTrigger=PropertyChanged}" SelectedItem="{Binding SelectedBook}">
+                  ItemsSource="{Binding AllBooks, UpdateSourceTrigger=PropertyChanged}" 
+                  SelectedItem="{Binding SelectedBook}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="No" Width="50">
@@ -336,6 +337,15 @@
                     </GridViewColumn>
                 </GridView>
             </ListView.View>
+            <ListView.ContextMenu>
+                <ContextMenu Name="SaleOrRent" StaysOpen="true" Background="WhiteSmoke">
+                    <ContextMenu.BitmapEffect>
+                        <BitmapEffectGroup/>
+                    </ContextMenu.BitmapEffect>
+                    <MenuItem Header="Sale" Name="btnSale" Click ="btnSale_Click"/>
+                    <MenuItem Header="Rent" Name="btnRent" />
+                </ContextMenu>
+            </ListView.ContextMenu>
         </ListView>
 
         <Button Width="350" Content="BACK TO MAIN MENU" Height="45" Grid.Row="3" Grid.ColumnSpan="2" Click="Button_Click"/>

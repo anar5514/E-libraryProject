@@ -1,4 +1,5 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -22,12 +23,13 @@ namespace ELibraryProject.Views
     public partial class BookView : UserControl
     {
         public MainWindowViewModel MainWindowViewModel { get; set; }
+        private BookViewModel bookViewModel;
 
         public BookView(MainWindowViewModel MainWindowViewModel)
         {
             this.MainWindowViewModel = MainWindowViewModel;
-            
-            BookViewModel bookViewModel = new BookViewModel();
+
+            bookViewModel = new BookViewModel();
             bookViewModel.LoadBooks.Execute(null);
 
             InitializeComponent();
@@ -39,6 +41,17 @@ namespace ELibraryProject.Views
         {
             MainWindowViewModel.Grid.Children.Clear();
             MainWindowViewModel.Grid.Children.Add(new HomePage());
+        }
+
+        private void btnSale_Click(object sender, RoutedEventArgs e)
+        {
+            if (bookViewModel.SelectedBook != null)
+            {
+                MainWindowViewModel.SelectedBook = new Book();
+                MainWindowViewModel.SelectedBook = bookViewModel.SelectedBook;
+                MainWindowViewModel.Grid.Children.Clear();
+                MainWindowViewModel.Grid.Children.Add(new SalesReportView(MainWindowViewModel));
+            }
         }
     }
 }

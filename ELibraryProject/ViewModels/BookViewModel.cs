@@ -82,8 +82,6 @@ namespace ELibraryProject.ViewModels
 
         public BookViewModel()
         {
-            AllBooks = new ObservableCollection<Book>();
-
             CurrentBook = new Book();               
         }
 

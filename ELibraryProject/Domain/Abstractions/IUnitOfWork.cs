@@ -18,5 +18,7 @@ namespace ELibraryProject.Domain.Abstractions
         IPermissionRepository PermissionRepository { get; }
         IUserRepository UserRepository { get; }
         IUserOnSystemRepository UserOnSystemRepository { get; }
+        ISaleReportRepository SaleReportRepository { get; }
+        IRentReportRepository RentReportRepository { get; }
     }
 }

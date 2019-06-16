@@ -35,7 +35,6 @@ namespace ELibraryProject.Commands.UserCommands
         {
             var user = UserViewModel.CurrentUser;
 
-
             if (user.UserName != null && (parameter as PasswordBox).Password != null)
             {
                 Helper helper = new Helper();

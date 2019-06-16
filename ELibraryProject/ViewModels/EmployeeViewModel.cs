@@ -84,8 +84,6 @@ namespace ELibraryProject.ViewModels
 
         public EmployeeViewModel()
         {
-            AllEmployees = new ObservableCollection<Employee>();
-
             CurrentEmployee = new Employee();
         }
     }

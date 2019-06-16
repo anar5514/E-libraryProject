@@ -118,7 +118,7 @@
             </StackPanel>
 
             <StackPanel Grid.Column="1">
-                <WrapPanel Margin="20,35,0,0" Height="40">
+                <WrapPanel Margin="20,0,0,0" Height="40">
                     <CheckBox Name="createCustomer" Width="150" Height="45" Background="Black" Content="Create customer" 
                               FontSize="26" FontFamily="Chiller" FontWeight="Bold" Foreground="LightGray"
                               IsChecked="{Binding CurrentUser.CanCreateCustomer, Mode=TwoWay}"/>
@@ -135,7 +135,12 @@
                     <CheckBox Name="createRent" Width="150" Height="45" Background="Black" Content="Create rent" 
                               FontSize="35" FontFamily="Chiller" FontWeight="Bold" Foreground="LightGray"
                               IsChecked="{Binding CurrentUser.CanRent}"/>
+                </WrapPanel>
 
+                <WrapPanel Margin="20,10,0,0" Height="40">
+                    <CheckBox Name="CreateSale" Width="150" Height="45" Background="Black" Content="Create employee" 
+                              FontSize="26" FontFamily="Chiller" FontWeight="Bold" Foreground="LightGray"
+                              IsChecked="{Binding CurrentUser.CanSale, Mode=TwoWay}"/>
                 </WrapPanel>
 
             </StackPanel>
@@ -144,7 +149,7 @@
         <Grid Grid.Row="1" Grid.ColumnSpan="2">
             <Button Width="100" Content="Add" Height="40"  Margin="-500,0,0,0"
                     Command="{Binding AddUser}" 
-                    CommandParameter="{Binding ElementName=Tem, Path=Template.Password}" >
+                    CommandParameter="{Binding ElementName=pwdBox}" >
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Style.Triggers>

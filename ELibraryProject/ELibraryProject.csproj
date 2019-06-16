@@ -92,16 +92,25 @@
     </Compile>
     <Compile Include="Commands\BaseCommand.cs" />
     <Compile Include="Commands\BookCommands\LoadBooks.cs" />
+    <Compile Include="Commands\BookCommands\RentBook.cs" />
+    <Compile Include="Commands\BookCommands\SaleBook.cs" />
     <Compile Include="Commands\BranchCommands\LoadBranches.cs" />
     <Compile Include="Commands\CustomerCommands\LoadCustomers.cs" />
     <Compile Include="Commands\EmployeeCommands\LoadEmployees.cs" />
     <Compile Include="Commands\HomePageCommands\LogOutCommand.cs" />
+    <Compile Include="Commands\RentsPageCommands\LoadRents.cs" />
+    <Compile Include="Commands\SalesPageCommands\Sale.cs" />
+    <Compile Include="Commands\SalesPageCommands\LoadSales.cs" />
+    <Compile Include="Commands\SalesPageCommands\RemoveSale.cs" />
+    <Compile Include="Commands\SalesPageCommands\UpdateSale.cs" />
     <Compile Include="Commands\UserCommands\LoadUsers.cs" />
     <Compile Include="DataAccess\BookRepository.cs" />
     <Compile Include="DataAccess\BranchRepository.cs" />
     <Compile Include="DataAccess\CustomerRepository.cs" />
     <Compile Include="DataAccess\EmployeeRepository.cs" />
     <Compile Include="DataAccess\PermissionRepository.cs" />
+    <Compile Include="DataAccess\RentReportRepository.cs" />
+    <Compile Include="DataAccess\SaleReportRepository.cs" />
     <Compile Include="DataAccess\SqlUnitOfWork.cs" />
     <Compile Include="DataAccess\UserOnSystemRepository.cs" />
     <Compile Include="DataAccess\UserRepository.cs" />
@@ -110,11 +119,15 @@
     <Compile Include="Domain\Abstractions\ICustomerRepository.cs" />
     <Compile Include="Domain\Abstractions\IEmployeeRepository.cs" />
     <Compile Include="Domain\Abstractions\IPermissionRepository.cs" />
+    <Compile Include="Domain\Abstractions\IRentReportRepository.cs" />
     <Compile Include="Domain\Abstractions\IRepository.cs" />
+    <Compile Include="Domain\Abstractions\ISaleReportRepository.cs" />
     <Compile Include="Domain\Abstractions\IUnitOfWork.cs" />
     <Compile Include="Domain\Abstractions\IUserOnSystemRepository.cs" />
     <Compile Include="Domain\Abstractions\IUserRepository.cs" />
     <Compile Include="DataAccess\ELibraryDbContext.cs" />
+    <Compile Include="Domain\Entities\RentReport.cs" />
+    <Compile Include="Domain\Entities\SaleReport.cs" />
     <Compile Include="Language\Dictionary.en.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -122,6 +135,8 @@
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Security\Helper.cs" />
+    <Compile Include="ViewModels\RentViewModel.cs" />
+    <Compile Include="ViewModels\SaleViewModel.cs" />
     <Compile Include="Views\EmployeeView.xaml.cs">
       <DependentUpon>EmployeeView.xaml</DependentUpon>
     </Compile>
@@ -196,7 +211,6 @@
     <Compile Include="Domain\Entities\Employee.cs" />
     <Compile Include="Domain\Entities\Permission.cs" />
     <Compile Include="Domain\Entities\User.cs" />
-    <Compile Include="Extension classes\BoolToVisibilityConverter.cs" />
     <Compile Include="ViewModels\BaseViewModel.cs" />
     <Compile Include="ViewModels\BookViewModel.cs" />
     <Compile Include="ViewModels\BranchViewModel.cs" />
@@ -298,5 +312,6 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

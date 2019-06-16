@@ -43,6 +43,7 @@ namespace ELibraryProject.Commands.LoginPageCommands
 
             if (user != null)
             {
+                App.UserOnSystem = user;
                 MainWindowViewModel.UserOnSystem = user;
                 MainWindowViewModel.Grid.Children.Clear();
                 MainWindowViewModel.Grid.Children.Add(new HomePage());

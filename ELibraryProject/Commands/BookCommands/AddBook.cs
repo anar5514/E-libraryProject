@@ -33,28 +33,9 @@ namespace ELibraryProject.Commands.BookCommands
             var zz = BookViewModel.CurrentBook;
 
             if (zz.Author!= null && zz.Branch != null &&
-                zz.Name != null && zz.PageCount != 0 && zz.SalePrice != 0 && zz.BuyPrice != 0)
-            {
-                #region Old Code
-                //var item = BookViewModel.AllBooks.FirstOrDefault(x => x.Id == BookViewModel.CurrentBook.Id);
-
-                //if (item == null)
-                //{
-                //    BookViewModel.CurrentBook.BranchId = BookViewModel.CurrentBook.Branch.Id;
-                //    UnitOfWork.BookRepository.Add(BookViewModel.CurrentBook);
-                //    BookViewModel.AllBooks.Add(BookViewModel.CurrentBook);
-                //    BookViewModel.State = 1;
-
-                //    MessageBoxResult add = MessageBox.Show("Added");
-                //    BookViewModel.CurrentBook = new Book();
-                //}
-                //else
-                //{
-                //    MessageBoxResult add = MessageBox.Show("Can not add this item, you can only update and delete");
-                //    BookViewModel.CurrentBook = new Book();
-                //}
-                #endregion
-
+                zz.Name != null && zz.PageCount != 0 && zz.SalePrice != 0 
+                && zz.BuyPrice != 0)
+            {               
                 UnitOfWork.BookRepository.Add(BookViewModel.CurrentBook);
                 BookViewModel.AllBooks.Add(BookViewModel.CurrentBook);
                 BookViewModel.State = 1;

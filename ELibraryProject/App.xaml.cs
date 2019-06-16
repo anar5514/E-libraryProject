@@ -1,4 +1,5 @@
-﻿using ELibraryProject.ViewModels;
+﻿using ELibraryProject.Entities;
+using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Configuration;
@@ -14,6 +15,8 @@ namespace ELibraryProject
     /// </summary>
     public partial class App : Application
     {
+        public static User UserOnSystem = new User();
+
         public App()
         {
 
