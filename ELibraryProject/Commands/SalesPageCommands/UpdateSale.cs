@@ -1,4 +1,5 @@
 ﻿using ELibraryProject.DataAccess;
+using ELibraryProject.Domain.Entities;
 using ELibraryProject.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -28,7 +29,12 @@ namespace ELibraryProject.Commands.SalesPageCommands
 
         public void Execute(object parameter)
         {
-            throw new NotImplementedException();
+            SaleViewModel.AllSaleReports.Remove(SaleViewModel.SelectedSaleReport);
+            SaleViewModel.AllSaleReports.Add(SaleViewModel.CurrentSaleReport);
+            SaleViewModel.State = 3;
+
+            UnitOfWork.SaleReportRepository.Update(SaleViewModel.CurrentSaleReport);
+            SaleViewModel.CurrentSaleReport = new SaleReport();
         }
     }
 }

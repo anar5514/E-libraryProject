@@ -2,10 +2,6 @@
 using ELibraryProject.ViewModels;
 using ELibraryProject.Views;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
@@ -50,8 +46,8 @@ namespace ELibraryProject.Commands.LoginPageCommands
             }
             else
             {
-                MainWindowViewModel.Grid.Children.Clear();
-                MainWindowViewModel.Grid.Children.Add(new HomePage());
+                //MainWindowViewModel.Grid.Children.Clear();
+                //MainWindowViewModel.Grid.Children.Add(new HomePage());
                 MessageBoxResult mb = MessageBox.Show("Invalid username or password");
                 MainWindowViewModel.UserOnSystem = new Entities.User();
             }

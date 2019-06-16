@@ -158,7 +158,7 @@
                 </Button.Style>
             </Button>
             <Button Width="100" Content="Delete" Height="40" Margin="0,0,0,0" 
-                    Command="{Binding RemoveSaleReport}">
+                    Command="{Binding RemoveSale}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="IsEnabled" Value="False"/>
@@ -182,7 +182,8 @@
                     </Style>
                 </Button.Style>
             </Button>
-            <Button Width="100" Content="Update" Height="40" Margin="500,0,0,0" Command="{Binding UpdateCustomer}">
+            <Button Width="100" Content="Update" Height="40" Margin="500,0,0,0"
+                    Command="{Binding UpdateSale}">
                 <Button.Style>
                     <Style TargetType="{x:Type Button}">
                         <Setter Property="IsEnabled" Value="False"/>
